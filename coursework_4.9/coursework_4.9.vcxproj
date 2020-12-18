@@ -115,11 +115,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Conv.cpp" />
+    <ClCompile Include="airliner.cpp" />
+    <ClCompile Include="combatAircraft.cpp" />
+    <ClCompile Include="combatAircraft.h" />
+    <ClCompile Include="Conveyor.cpp" />
+    <ClCompile Include="Director.cpp" />
+    <ClCompile Include="helicopter.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="quadcopter.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Conv.h" />
+    <ClInclude Include="airliner.h" />
+    <ClInclude Include="Builder.h" />
+    <ClInclude Include="Conveyor.h" />
+    <ClInclude Include="Director.h" />
+    <ClInclude Include="helicopter.h" />
+    <ClInclude Include="quadcopter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
