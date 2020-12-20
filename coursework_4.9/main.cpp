@@ -25,20 +25,46 @@ int main() {
 	//Director *D = new Director;
 	//menu1(*D);
 	int N = 0, choose = 0, i = 0;
+	char choose1;
 	bool loop = true;
 	//menu *M;
 	cout << "Enter N" << endl;
 	cin >> N;
 	// Функция main() в данном случае выступает клиентом
-	// 1. Объявить указатель на продукт, который нужно получить
-	Conveyor** product = new Conveyor*[N]; //builder
-	helicopter Helic; //concrete builder
-	quadcopter Quadr;
-	airliner Air;
-	combatAircraft CA;
+// 1. Объявить указатель на продукт, который нужно получить
+	vector <Conveyor*> product;
+	//Conveyor** product = new Conveyor*[N]; //builder
+	helicopter *Helic = new helicopter; //concrete builder
+	quadcopter* Quadr = new quadcopter;
+	airliner* Air = new airliner;
+	combatAircraft *CA = new combatAircraft;
 	Director *D = new Director;
 	do {
+	/*	system("cls");
+		cout <<"Главное меню:" << endl;
+		cout << "1) Создание" << endl;
+		cout << "2) Редактирование" << endl;
+		cout << "3) Сохранение" << endl;
+		cout << "4) Загрузка" << endl;
+		cout << "5) Вывести созданные продукты" << endl;
+		cout << "6) Выход" << endl;
+		cin >> choose1;
 		system("cls");
+		switch(choose1) {
+		case '1':
+
+			break;
+		case '2':
+			break;
+		case '3':
+			break;
+		case '4':
+			break;
+		case '5':
+			break;
+		case '6':
+			break;
+		}*/
 		cout << "Выберите тип летательного аппарата:" << endl;
 		cout << "1) Пассажирский самолет" << endl;
 		cout << "2) Военный самолет" << endl;
@@ -49,31 +75,31 @@ int main() {
 
 		switch (choose) {
 		case 1:
-			D->Construct(Air);
+			D->Construct(*Air);
 			//D.Edit(Air);
 		//	M->fMenu(Air);
 		//	D.Construct(Air); // сконфигурировать
 		//	menu2(*D, Air);
-			product[i] = Air.GetResult();
-			i++;
+			product.push_back(Air->GetResult());
 			break;
 		case 2:
-			//D->Construct(CA); // сконфигурировать
-			menu2(*D, CA);
-			product[i] = CA.GetResult();
-			i++;
+			D->Construct(*CA); // сконфигурировать
+			//menu2(*D, CA);
+			//product[i] = CA.GetResult();
+			product.push_back(CA->GetResult());
+			//i++;
 			break;
 		case 3:
-			//D->Construct(Helic); // сконфигурировать
-			menu2(*D, Helic);
-			product[i] = Helic.GetResult();
-			i++;
+			D->Construct(*Helic); // сконфигурировать
+			//menu2(*D, Helic);
+			//product[i] = Helic.GetResult();
+			product.push_back(Helic->GetResult());
 			break;
 		case 4:
-			//D->Construct(Quadr); // сконфигурировать
-			menu2(*D, Quadr);
-			product[i] = Quadr.GetResult();
-			i++;
+			D->Construct(*Quadr); // сконфигурировать
+			//menu2(*D, Quadr);
+			//product[i] = Quadr.GetResult();
+			product.push_back(Quadr->GetResult());
 			break;
 		case 5:
 			loop = false;
@@ -110,8 +136,12 @@ int main() {
 	{
 		delete[] product[j];
 	}*/
-	delete[] product;
-
+	//delete[] product;
+	delete Quadr;
+	delete D;
+	delete Helic;
+	delete CA;
+	delete Air;
 	system("pause");
 	return 0;
 }
@@ -174,6 +204,7 @@ void menu1(Director& director) {
 	} while (loop);
 	delete[] product;
 }
+// Добавление элемента в конец вектора
 
 void menu2(Director& director, Builder &builder) {
 	cout << "1) Сконфигурировать" << endl;

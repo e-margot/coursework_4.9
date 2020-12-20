@@ -1,11 +1,4 @@
-﻿  airliner.cpp
-  combatAircraft.cpp
-  combatAircraft.h
-  Conveyor.cpp
-  Director.cpp
-  helicopter.cpp
-  main.cpp
-  quadcopter.cpp
-  Создание кода...
+﻿  main.cpp
+c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(28): warning C4101: choose1: неиспользованная локальная переменная
 Debug\combatAircraft.obj : warning LNK4042: юс·хъЄ єърчрэ сюыхх юфэюую Ёрчр; ыш°эшх эх єўшЄ√тр■Єё
   coursework_4.9.vcxproj -> C:\Users\User\Desktop\coursework_4.9\Debug\coursework_4.9.exe
