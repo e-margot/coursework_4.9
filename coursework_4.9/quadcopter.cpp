@@ -7,7 +7,6 @@ quadcopter::quadcopter()
 
 void quadcopter::CreateProduct()
 {
-	cout << "создали квадрик №" << endl;
 	currentBuilder = new Conveyor();
 }
 
@@ -78,6 +77,25 @@ void quadcopter::ofile() {
 	fout << "Скорость: " << currentBuilder->speed << endl;
 	fout << "Управление: " << currentBuilder->control << endl;
 	fout << "Год производства: " << currentBuilder->year << endl;
+	fout << "----------------\n";
+	fout.close();
 }//тип вооружения
-void quadcopter::ifile() {}//тип вооружения
+void quadcopter::ifile() {
+	char line[100][100];
+	ifstream fin;
+	fin.open("qudro.txt", ios::in);
+	if (!fin)
+	{
+		cout << "Файл не открыт\n\n";
+		return;
+	}
+	int count = 0;
+	while (fin.getline(line[count], 100)) count++;
+	for (int j = 0; j < count; j++)
+	{
+		cout << line[j] << endl;
+	}
+	system("pause");
+	fin.close();
+}//тип вооружения
 

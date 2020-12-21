@@ -24,12 +24,10 @@ int main() {
 	setlocale(LC_ALL, "rus");
 	//Director *D = new Director;
 	//menu1(*D);
-	int N = 0, choose = 0, i = 0;
-	char choose1;
+	int i = 0;
+	char choose1, choose2;
 	bool loop = true;
 	//menu *M;
-	cout << "Enter N" << endl;
-	cin >> N;
 	// Функция main() в данном случае выступает клиентом
 // 1. Объявить указатель на продукт, который нужно получить
 	vector <Conveyor*> product;
@@ -40,7 +38,7 @@ int main() {
 	combatAircraft *CA = new combatAircraft;
 	Director *D = new Director;
 	do {
-	/*	system("cls");
+		system("cls");
 		cout <<"Главное меню:" << endl;
 		cout << "1) Создание" << endl;
 		cout << "2) Редактирование" << endl;
@@ -50,9 +48,33 @@ int main() {
 		cout << "6) Выход" << endl;
 		cin >> choose1;
 		system("cls");
-		switch(choose1) {
+		switch (choose1) {
 		case '1':
-
+			cout << "Выберите тип летательного аппарата:" << endl;
+			cout << "1) Пассажирский самолет" << endl;
+			cout << "2) Военный самолет" << endl;
+			cout << "3) Вертолет" << endl;
+			cout << "4) Квадрокоптер" << endl;
+			cin >> choose2;
+			switch (choose2) {
+			case '1':
+				D->Construct(*Air);
+				product.push_back(Air->GetResult());
+				break;
+			case '2':
+				D->Construct(*CA);
+				product.push_back(CA->GetResult());
+				//i++;
+				break;
+			case '3':
+				D->Construct(*Helic);
+				product.push_back(Helic->GetResult());
+				break;
+			case '4':
+				D->Construct(*Quadr);
+				product.push_back(Quadr->GetResult());
+				break;
+			}
 			break;
 		case '2':
 			break;
@@ -61,56 +83,14 @@ int main() {
 		case '4':
 			break;
 		case '5':
+			D->Get(*CA);
 			break;
 		case '6':
-			break;
-		}*/
-		cout << "Выберите тип летательного аппарата:" << endl;
-		cout << "1) Пассажирский самолет" << endl;
-		cout << "2) Военный самолет" << endl;
-		cout << "3) Вертолет" << endl;
-		cout << "4) Квадрокоптер" << endl;
-		cout << "5) Выход" << endl;
-		cin >> choose;
-
-		switch (choose) {
-		case 1:
-			D->Construct(*Air);
-			//D.Edit(Air);
-		//	M->fMenu(Air);
-		//	D.Construct(Air); // сконфигурировать
-		//	menu2(*D, Air);
-			product.push_back(Air->GetResult());
-			break;
-		case 2:
-			D->Construct(*CA); // сконфигурировать
-			//menu2(*D, CA);
-			//product[i] = CA.GetResult();
-			product.push_back(CA->GetResult());
-			//i++;
-			break;
-		case 3:
-			D->Construct(*Helic); // сконфигурировать
-			//menu2(*D, Helic);
-			//product[i] = Helic.GetResult();
-			product.push_back(Helic->GetResult());
-			break;
-		case 4:
-			D->Construct(*Quadr); // сконфигурировать
-			//menu2(*D, Quadr);
-			//product[i] = Quadr.GetResult();
-			product.push_back(Quadr->GetResult());
-			break;
-		case 5:
 			loop = false;
+			break;
 		default:
-			loop = false;
+			cout << "Ошибка! Повторите ввод" << endl;
 		}
-		if (i == N) { //проверка на дурочка
-			cout << "Мест нет" << endl;
-			loop = false;
-		}
-
 	} while (loop);
 	system("cls");
 	/*for (int j = 0; j < i; j++) {

@@ -1,18 +1,15 @@
 #include "combatAircraft.h"
 
-
-
 void combatAircraft::setIsMil() {
 	currentBuilder->isMilitary = true;
-
 }
+
 void combatAircraft::setType() {
 	string type;
 	cout << "Enter type of plane" << endl;
 	cin >> type;
 	currentBuilder->type = type;
 }//military or civilian - военный или гражданский
-
 
 void combatAircraft::setWeihht() {
 	float weihht;
@@ -105,6 +102,7 @@ void combatAircraft::SetWeapon() {
 	cin >> weapon;
 	currentBuilder->weapon = weapon;
 }//тип вооружения
+
 void combatAircraft::ofile() {
 	ofstream fout;
 	fout.open("combatAircraft.txt", ios_base::app);
@@ -123,8 +121,28 @@ void combatAircraft::ofile() {
 	fout << "Экипаж (число человек): " << currentBuilder->crew << endl;
 	fout << "Год производства: " << currentBuilder->year << endl;
 	fout << "Тип вооружения: " << currentBuilder->weapon << endl;
+	fout << "----------------\n";
+	fout.close();
 }//тип вооружения
-void combatAircraft::ifile() {}//тип вооружения
+
+void combatAircraft::ifile() {
+	char line[100][100];
+	ifstream fin;
+	fin.open("combatAircraft.txt", ios::in);
+	if (!fin)
+	{
+		cout << "Файл не открыт\n\n";
+		return;
+	}
+	int count = 0;
+	while (fin.getline(line[count], 100)) count++;
+	for (int j = 0; j < count; j++)
+	{
+		cout << line[j] << endl;
+	}
+	system("pause");
+	fin.close();
+}//тип вооружения
 
 combatAircraft::combatAircraft()
 {
@@ -143,4 +161,8 @@ combatAircraft::~combatAircraft()
 {
 	if (currentBuilder != nullptr)
 		delete currentBuilder;
+}
+
+void combatAircraft::getType(){
+	// << currentBuilder->type << endl;
 }

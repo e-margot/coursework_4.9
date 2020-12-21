@@ -152,8 +152,27 @@ void helicopter::ofile() {
 	fout << "Экипаж (число человек): " << currentBuilder->crew << endl;
 	fout << "Год производства: " << currentBuilder->year << endl;
 	fout << "Тип вооружения: " << currentBuilder->weapon << endl;
+	fout << "----------------\n";
+	fout.close();
 }//тип вооружения
-void helicopter::ifile() {}//тип вооружения
+void helicopter::ifile() {
+	char line[100][100];
+	ifstream fin;
+	fin.open("helic.txt", ios::in);
+	if (!fin)
+	{
+		cout << "Файл не открыт\n\n";
+		return;
+	}
+	int count = 0;
+	while (fin.getline(line[count], 100)) count++;
+	for (int j = 0; j < count; j++)
+	{
+		cout << line[j] << endl;
+	}
+	system("pause");
+	fin.close();
+}//тип вооружения
 
 Conveyor* helicopter::GetResult()
 {

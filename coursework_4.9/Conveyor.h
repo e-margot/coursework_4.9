@@ -10,6 +10,7 @@ using namespace std;
 class Conveyor
 {
 public:
+	string machine;
 	bool isMilitary; //Военный или гражданский
 	string type; //military or civilian - тип военный или гражданский
 	float weihht; // takeoff weight - взлетная масса

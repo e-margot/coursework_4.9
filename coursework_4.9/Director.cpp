@@ -6,7 +6,6 @@ void Director::Construct(Builder& builder)
 	// 1. Создать продукт
 	builder.CreateProduct();
 	builder.setType();
-	builder.setType();
 	builder.setIsMil(); //  type of military apparatus - тип военного аппарата
 	builder.setWeihht();// takeoff weight - взлетная масса
 	builder.setEngine(); //type of engines - тип двигателей
@@ -81,4 +80,8 @@ void Director::Edit(Builder &builder) {
 
 void Director::Del(Builder& builder) {
 
+}
+
+void Director::Get(Builder& builder) {
+	builder.getType();
 }

@@ -6,6 +6,7 @@ public:
 	Builder() { };
 	virtual ~Builder() {};
 	virtual void CreateProduct() {};
+	virtual void machine() {};
 	virtual void setType() {};//military or civilian - военный или гражданский
 	virtual void setIsMil() {}; //  type of military apparatus - тип военного аппарата
 	virtual void setWeihht() {};// takeoff weight - взлетная масса
@@ -24,5 +25,6 @@ public:
 	virtual void delType() {};//удаление
 	virtual void ofile() {};//вывод в файл
 	virtual void ifile() {};//считывание с файла
+	virtual void getType() {};//считывание с файла
 	virtual Conveyor* GetResult() { return nullptr; };
 };

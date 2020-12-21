@@ -30,5 +30,6 @@ public:
 	void SetWeapon();
 	void ofile();
 	void ifile();
+	void getType();
 
 };
