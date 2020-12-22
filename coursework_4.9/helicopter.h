@@ -11,6 +11,7 @@ public:
 	~helicopter();
 	// Реализация виртуальных методов
 	void CreateProduct();
+	void setMachine();
 	void setType();
 	void setIsMil();
 	void setWeihht();

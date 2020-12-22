@@ -6,7 +6,7 @@ public:
 	Builder() { };
 	virtual ~Builder() {};
 	virtual void CreateProduct() {};
-	virtual void machine() {};
+	virtual void setMachine() {};
 	virtual void setType() {};//military or civilian - военный или гражданский
 	virtual void setIsMil() {}; //  type of military apparatus - тип военного аппарата
 	virtual void setWeihht() {};// takeoff weight - взлетная масса

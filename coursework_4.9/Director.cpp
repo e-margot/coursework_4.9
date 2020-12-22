@@ -85,3 +85,44 @@ void Director::Del(Builder& builder) {
 void Director::Get(Builder& builder) {
 	builder.getType();
 }
+
+void Director::File(Builder& builder) {
+	builder.ofile();
+}
+
+/*void Director::File(vector <Conveyor*> product) {
+	/*ofstream f_ca, f_quadr, f_h, f_air;
+	f_ca.open("combatAircraft.txt", ios_base::app);
+	f_h.open("helic.txt", ios_base::app);
+	f_air.open("airliner.txt", ios_base::app);
+	f_quadr.open("qudro.txt", ios_base::app);
+
+	for (size_t i = 0; i < product.size(); i++)
+	{
+		if (product[i]->machine == "Военный")
+			for (size_t j = 0; j < product[i]->machine.size(); j++)
+			{
+				//f_ca << product[i]->machine[j] << endl;
+
+			}
+		if (product[i]->machine == "")
+			for (size_t j = 0; j < product[i]->machine.size(); j++)
+			{
+				//f_h << product[i]->machine[j] << endl;
+			}
+		if (product[i]->machine == "Machine: Quadrobike")
+			for (size_t j = 0; j < product[i]->machine.size(); j++)
+			{
+				//f_air << product[i]->machine[j] << endl;
+			}
+		if (product[i]->machine == "Machine: Quadrobike")
+			for (size_t j = 0; j < product[i]->machine.size(); j++)
+			{
+				//f_quadr << product[i]->machine[j] << endl;
+			}
+	}
+	f_ca.close();
+	f_h.close();
+	f_air.close();
+	f_quadr.close();
+}*/

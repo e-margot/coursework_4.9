@@ -19,6 +19,15 @@ void menu2(Director& director, Builder &builder);
 
 
 int main() {
+	ofstream f_ca, f_quadr, f_h, f_air;
+	f_ca.open("combatAircraft.txt", ios_base::trunc);
+	f_h.open("helic.txt", ios_base::trunc);
+	f_air.open("airliner.txt", ios_base::trunc);
+	f_quadr.open("qudro.txt", ios_base::trunc);
+	f_ca.close();
+	f_h.close();
+	f_air.close();
+	f_quadr.close();
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	setlocale(LC_ALL, "rus");
@@ -26,6 +35,7 @@ int main() {
 	//menu1(*D);
 	int i = 0;
 	char choose1, choose2;
+	int ch;
 	bool loop = true;
 	//menu *M;
 	// Функция main() в данном случае выступает клиентом
@@ -42,10 +52,11 @@ int main() {
 		cout <<"Главное меню:" << endl;
 		cout << "1) Создание" << endl;
 		cout << "2) Редактирование" << endl;
-		cout << "3) Сохранение" << endl;
-		cout << "4) Загрузка" << endl;
-		cout << "5) Вывести созданные продукты" << endl;
-		cout << "6) Выход" << endl;
+		cout << "3) Удаление" << endl;
+		cout << "4) Сохранение" << endl;
+		cout << "5) Загрузка" << endl;
+		cout << "6) Вывести созданные продукты" << endl;
+		cout << "7) Выход" << endl;
 		cin >> choose1;
 		system("cls");
 		switch (choose1) {
@@ -55,6 +66,7 @@ int main() {
 			cout << "2) Военный самолет" << endl;
 			cout << "3) Вертолет" << endl;
 			cout << "4) Квадрокоптер" << endl;
+			cout << ">>" << endl;
 			cin >> choose2;
 			switch (choose2) {
 			case '1':
@@ -64,7 +76,6 @@ int main() {
 			case '2':
 				D->Construct(*CA);
 				product.push_back(CA->GetResult());
-				//i++;
 				break;
 			case '3':
 				D->Construct(*Helic);
@@ -79,13 +90,32 @@ int main() {
 		case '2':
 			break;
 		case '3':
+			if (!product.empty()) {
+				for (int j = 0; j < product.size(); j++) {
+					cout << j + 1 << ") " << product[j]->machine << endl;
+						cout<<product[j]->type << endl;
+				}
+				cout << ">>";
+				cin >> ch;
+				product.erase(product.begin() + ch - 1);
+				/*f_ca.open("combatAircraft.txt", ios_base::trunc);
+				f_h.open("helic.txt", ios_base::trunc);
+				f_air.open("airliner.txt", ios_base::trunc);
+				f_quadr.open("qudro.txt", ios_base::trunc);*/
+
+			}
+			else {
+				cout << "Список летательных аппаратов пуст!" << endl;
+			}
 			break;
 		case '4':
-			break;
+			break;	
 		case '5':
-			D->Get(*CA);
 			break;
 		case '6':
+			D->Get(*CA);
+			break;
+		case '7':
 			loop = false;
 			break;
 		default:
@@ -93,9 +123,11 @@ int main() {
 		}
 	} while (loop);
 	system("cls");
-	/*for (int j = 0; j < i; j++) {
-		cout << product[j]->type << endl;
-	}*/
+	if (!product.empty()) {
+		for (int j = 0; j < product.size(); j++) {
+			cout << product[j]->type << endl;
+		}
+	}
 	// 2. Создать конкретный экземпляр класса helicopter и заполнить значениями
 
 	// 3. Создать класс-распорядитель и сконфигурировать его продуктом B

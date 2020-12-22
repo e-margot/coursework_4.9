@@ -13,6 +13,7 @@ public:
 	~combatAircraft();
 	void CreateProduct();
 	Conveyor* GetResult();
+	void setMachine();
 	void setType();
 	void setIsMil();
 	void setWeihht();

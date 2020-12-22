@@ -154,3 +154,6 @@ airliner::airliner()
 {
 	currentBuilder = nullptr;
 }
+void airliner::setMachine() {
+	currentBuilder->machine = "Пассажирский";
+}

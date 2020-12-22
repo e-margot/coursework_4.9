@@ -6,7 +6,7 @@ void combatAircraft::setIsMil() {
 
 void combatAircraft::setType() {
 	string type;
-	cout << "Enter type of plane" << endl;
+	cout << "Тип летательного аппарата: " << endl;
 	cin >> type;
 	currentBuilder->type = type;
 }//military or civilian - военный или гражданский
@@ -165,4 +165,7 @@ combatAircraft::~combatAircraft()
 
 void combatAircraft::getType(){
 	// << currentBuilder->type << endl;
+}
+void combatAircraft::setMachine() {
+	currentBuilder->machine = "Военный";
 }

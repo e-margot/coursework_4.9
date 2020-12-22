@@ -1,8 +1,8 @@
 #include "helicopter.h"
 
-
-
-
+void helicopter::setMachine() {
+	currentBuilder->machine = "Вертолет";
+}
 
 helicopter::helicopter()
 {

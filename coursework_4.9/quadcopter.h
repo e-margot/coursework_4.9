@@ -13,6 +13,7 @@ public:
 	void CreateProduct();
 	Conveyor* GetResult();
 	~quadcopter();
+	void setMachine();
 	void setType();
 	void setIsMil();
 	void setWeihht();

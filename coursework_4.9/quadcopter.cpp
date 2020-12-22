@@ -9,7 +9,9 @@ void quadcopter::CreateProduct()
 {
 	currentBuilder = new Conveyor();
 }
-
+void quadcopter::setMachine() {
+	currentBuilder->machine = "Квадрокоптер";
+}
 
 // Метод, возвращающий продукт для клиента
 Conveyor* quadcopter::GetResult()
