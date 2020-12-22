@@ -1,17 +1,14 @@
 #include "airliner.h"
 
-
-
 void airliner::setIsMil() {
 	currentBuilder->isMilitary = false;
 }
 void airliner::setType() {
 	string type;
-	cout << "Enter type of plane" << endl;
+	cout << "Тип летательного аппарата: " << endl;
 	cin >> type;
 	currentBuilder->type = type;
 }//military or civilian - военный или гражданский
-
 
 void airliner::setWeihht() {
 	float weihht;
@@ -117,7 +114,7 @@ void airliner::ofile() {
 	fout << "Год производства:" << currentBuilder->year << endl;
 	fout << "----------------\n";
 	fout.close();
-}//тип вооружения
+}
 void airliner::ifile() {
 	char line[100][100];
 	ifstream fin;
@@ -135,7 +132,7 @@ void airliner::ifile() {
 	}
 	system("pause");
 	fin.close();
-}//тип вооружения
+}
 Conveyor* airliner::GetResult()
 {
 	return currentBuilder;

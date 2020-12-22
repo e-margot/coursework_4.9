@@ -150,7 +150,6 @@ combatAircraft::combatAircraft()
 }
 void combatAircraft::CreateProduct()
 {
-	cout << "военный" << endl;
 	currentBuilder = new Conveyor();
 }
 Conveyor*combatAircraft::GetResult()

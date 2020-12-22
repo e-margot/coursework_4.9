@@ -9,7 +9,7 @@ public:
 	// Метод, конструирующий части
 	void Construct(Builder& builder);
 	void Edit(Builder& builder);
-	void Del(Builder& builder);
+	void Del();
 	void Get(Builder& builder);
 	void File(Builder& builder);
 	//void File(vector <Conveyor*> product);

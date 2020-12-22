@@ -5,6 +5,7 @@ void Director::Construct(Builder& builder)
 {
 	// 1. Создать продукт
 	builder.CreateProduct();
+	builder.setMachine();
 	builder.setType();
 	//builder.setIsMil(); //  type of military apparatus - тип военного аппарата
 	//builder.setWeihht();// takeoff weight - взлетная масса
@@ -20,7 +21,7 @@ void Director::Construct(Builder& builder)
 	//builder.setCrew();//экипаж(число)
 	//builder.setYear(); //год производства
 	//builder.setWeapon();//тип вооружения
-	//builder.ofile();//тип вооружения
+	builder.ofile();//тип вооружения
 	//builder.ifile();
 }
 
@@ -78,8 +79,16 @@ void Director::Edit(Builder &builder) {
 	}
 }
 
-void Director::Del(Builder& builder) {
-
+void Director::Del() {
+	ofstream f_ca, f_quadr, f_h, f_air;
+	f_h.open("combatAircraft.txt", ios_base::trunc);
+	f_h.open("helic.txt", ios_base::trunc);
+	f_air.open("airliner.txt", ios_base::trunc);
+	f_quadr.open("qudro.txt", ios_base::trunc);
+	f_ca.close();
+	f_h.close();
+	f_air.close();
+	f_quadr.close();
 }
 
 void Director::Get(Builder& builder) {
@@ -90,6 +99,7 @@ void Director::File(Builder& builder) {
 	builder.ofile();
 }
 /*void Director::Edit(vector <Conveyor*> product) {
+
 	for (size_t i = 0; i < product.size(); i++)
 	{
 		if (product[i]->machine == "Военный")

@@ -1,6 +1,11 @@
-﻿  Director.cpp
+﻿  Conveyor.cpp
+  Director.cpp
+  airliner.cpp
+  combatAircraft.cpp
+  combatAircraft.h
+  helicopter.cpp
   main.cpp
-c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(117): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(151): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(122): warning C4018: <: несоответствие типов со знаком и без знака
+  quadcopter.cpp
   Создание кода...
   coursework_4.9.vcxproj -> C:\Users\User\Desktop\coursework_4.9\Debug\coursework_4.9.exe
