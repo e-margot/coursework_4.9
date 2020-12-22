@@ -13,4 +13,5 @@ public:
 	void Get(Builder& builder);
 	void File(Builder& builder);
 	//void File(vector <Conveyor*> product);
+	//void Edit(vector <Conveyor*> product);
 };

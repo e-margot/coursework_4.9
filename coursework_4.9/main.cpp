@@ -6,7 +6,6 @@
 #include "Conveyor.h"
 #include "Builder.h"
 #include "Director.h"
-//#include "menu.h"
 #include "helicopter.h"
 #include "quadcopter.h"
 #include "airliner.h"
@@ -17,6 +16,8 @@ using namespace std;
 void menu1(Director& director);
 void menu2(Director& director, Builder &builder);
 
+// Функция main() в данном случае выступает клиентом
+// 1. Объявить указатель на продукт, который нужно получить
 
 int main() {
 	ofstream f_ca, f_quadr, f_h, f_air;
@@ -31,15 +32,11 @@ int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	setlocale(LC_ALL, "rus");
-	//Director *D = new Director;
-	//menu1(*D);
 	int i = 0;
 	char choose1, choose2;
 	int ch;
 	bool loop = true;
 	//menu *M;
-	// Функция main() в данном случае выступает клиентом
-// 1. Объявить указатель на продукт, который нужно получить
 	vector <Conveyor*> product;
 	//Conveyor** product = new Conveyor*[N]; //builder
 	helicopter *Helic = new helicopter; //concrete builder
@@ -88,6 +85,27 @@ int main() {
 			}
 			break;
 		case '2':
+			cout << "Выберите тип летательного аппарата:" << endl;
+			cout << "1) Пассажирский самолет" << endl;
+			cout << "2) Военный самолет" << endl;
+			cout << "3) Вертолет" << endl;
+			cout << "4) Квадрокоптер" << endl;
+			cout << ">>" << endl;
+			cin >> choose2;
+			switch (choose2) {
+			case '1':
+				D->Edit(*Air);
+				break;
+			case '2':
+				D->Edit(*CA);
+				break;
+			case '3':
+				D->Edit(*Helic);
+				break;
+			case '4':
+				D->Edit(*Quadr);
+				break;
+			}
 			break;
 		case '3':
 			if (!product.empty()) {
@@ -106,6 +124,7 @@ int main() {
 			}
 			else {
 				cout << "Список летательных аппаратов пуст!" << endl;
+				system("pause");
 			}
 			break;
 		case '4':
@@ -128,27 +147,6 @@ int main() {
 			cout << product[j]->type << endl;
 		}
 	}
-	// 2. Создать конкретный экземпляр класса helicopter и заполнить значениями
-
-	// 3. Создать класс-распорядитель и сконфигурировать его продуктом B
-	//Director D;
-	//D.Construct(Helic); // сконфигурировать
-	//D.Construct(Quadr1); // сконфигурировать
-	//D.Construct(Quadr2); // сконфигурировать
-
-	//// 4. После конфигурирования, передать созданный продукт клиенту
-	//product[0] = Helic.GetResult();
-	//product[1] = Quadr1.GetResult();
-	//product[2] = Quadr2.GetResult();
-
-	// 5. Вывести значение продукта для контроля
-	/*cout << "product->type = " << product->type << endl;
-	cout << "product->engine = " << product->engine << endl;*/
-	/*for (int j = 0; j < i; j++)
-	{
-		delete[] product[j];
-	}*/
-	//delete[] product;
 	delete Quadr;
 	delete D;
 	delete Helic;

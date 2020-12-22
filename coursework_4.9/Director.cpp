@@ -6,22 +6,22 @@ void Director::Construct(Builder& builder)
 	// 1. Создать продукт
 	builder.CreateProduct();
 	builder.setType();
-	builder.setIsMil(); //  type of military apparatus - тип военного аппарата
-	builder.setWeihht();// takeoff weight - взлетная масса
-	builder.setEngine(); //type of engines - тип двигателей
-	builder.setNumEngine(); //number of engines - количество двигателей
-	builder.setWings(); // number of wings - число крыльев
-	builder.setArrangW();//arrangement of wings - расположение крыльев
-	builder.setChassis(); // type of chassis - тип шасси
-	builder.setSpeed();//flight speed - скорость полета
-	builder.setTakeoff();//тип взлета
-	builder.setLanding();//тип посадки
-	builder.setControl(); //метод управления
-	builder.setCrew();//экипаж(число)
-	builder.setYear(); //год производства
-	builder.setWeapon();//тип вооружения
-	builder.ofile();//тип вооружения
-	builder.ifile();
+	//builder.setIsMil(); //  type of military apparatus - тип военного аппарата
+	//builder.setWeihht();// takeoff weight - взлетная масса
+	//builder.setEngine(); //type of engines - тип двигателей
+	//builder.setNumEngine(); //number of engines - количество двигателей
+	//builder.setWings(); // number of wings - число крыльев
+	//builder.setArrangW();//arrangement of wings - расположение крыльев
+	//builder.setChassis(); // type of chassis - тип шасси
+	//builder.setSpeed();//flight speed - скорость полета
+	//builder.setTakeoff();//тип взлета
+	//builder.setLanding();//тип посадки
+	//builder.setControl(); //метод управления
+	//builder.setCrew();//экипаж(число)
+	//builder.setYear(); //год производства
+	//builder.setWeapon();//тип вооружения
+	//builder.ofile();//тип вооружения
+	//builder.ifile();
 }
 
 void Director::Edit(Builder &builder) {
@@ -89,6 +89,33 @@ void Director::Get(Builder& builder) {
 void Director::File(Builder& builder) {
 	builder.ofile();
 }
+/*void Director::Edit(vector <Conveyor*> product) {
+	for (size_t i = 0; i < product.size(); i++)
+	{
+		if (product[i]->machine == "Военный")
+			for (size_t j = 0; j < product[i]->machine.size(); j++)
+			{
+				//f_ca << product[i]->machine[j] << endl;
+
+			}
+		if (product[i]->machine == "")
+			for (size_t j = 0; j < product[i]->machine.size(); j++)
+			{
+				//f_h << product[i]->machine[j] << endl;
+			}
+		if (product[i]->machine == "Machine: Quadrobike")
+			for (size_t j = 0; j < product[i]->machine.size(); j++)
+			{
+				//f_air << product[i]->machine[j] << endl;
+			}
+		if (product[i]->machine == "Machine: Quadrobike")
+			for (size_t j = 0; j < product[i]->machine.size(); j++)
+			{
+				//f_quadr << product[i]->machine[j] << endl;
+			}
+	}
+}
+*/
 
 /*void Director::File(vector <Conveyor*> product) {
 	/*ofstream f_ca, f_quadr, f_h, f_air;
