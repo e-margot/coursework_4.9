@@ -168,3 +168,8 @@ void combatAircraft::getType(){
 void combatAircraft::setMachine() {
 	currentBuilder->machine = "Военный";
 }
+void combatAircraft::Edit(Conveyor* product) {
+
+	currentBuilder->machine = product->machine;
+
+}

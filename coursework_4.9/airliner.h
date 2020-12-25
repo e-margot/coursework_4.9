@@ -14,6 +14,7 @@ public:
 	// Реализация виртуальных методов
 	void CreateProduct();
 	void setMachine();
+	void Edit(Conveyor * product);
 	void setType();
 	void setIsMil();
 	void setWeihht();

@@ -32,5 +32,5 @@ public:
 	void ofile();
 	void ifile();
 	void getType();
-
+	void Edit(Conveyor* product);
 };

@@ -22,4 +22,5 @@ public:
 	void setYear();
 	void ofile();
 	void ifile();
+	void Edit(Conveyor* product);
 };

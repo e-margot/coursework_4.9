@@ -15,15 +15,6 @@ using namespace std;
 
 /*поиграться с полями*/
 int main() {
-	ofstream f_ca, f_quadr, f_h, f_air;
-	f_ca.open("combatAircraft.txt", ios_base::trunc);
-	f_h.open("helic.txt", ios_base::trunc);
-	f_air.open("airliner.txt", ios_base::trunc);
-	f_quadr.open("qudro.txt", ios_base::trunc);
-	f_ca.close();
-	f_h.close();
-	f_air.close();
-	f_quadr.close();
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	setlocale(LC_ALL, "rus");
@@ -37,6 +28,7 @@ int main() {
 	airliner* Air = new airliner;
 	combatAircraft *CA = new combatAircraft;
 	Director *D = new Director;
+	D->clrFile();
 	do {
 		system("cls");
 		cout <<"Главное меню:" << endl;
@@ -60,7 +52,7 @@ int main() {
 			cout << ">>";
 			cin >> choose2;
 			switch (choose2) {
-			case '1':
+			case '1'://1 2 1
 				D->Construct(*Air);
 				product.push_back(Air->GetResult());
 				break;
@@ -81,50 +73,87 @@ int main() {
 		case '2':
 			/*редактирование*/
 			cout << "РЕДАКТИРОВАНИЕ" << endl;
-			cout << "1) Пассажирский самолет" << endl;
+		/*	cout << "1) Пассажирский самолет" << endl;
 			cout << "2) Военный самолет" << endl;
 			cout << "3) Вертолет" << endl;
 			cout << "4) Квадрокоптер" << endl;
-			cout << ">>";
-			cin >> choose2;
-			switch (choose2) {
-			case '1':
-				if (Air->GetResult()!=nullptr) {
-					D->Edit(*Air);
+			cout << ">>";*/
+			//cin >> choose2;
+			/*switch (choose2) {
+			case '1':*/
+			if (!product.empty()) {
+				for (int j = 0; j < product.size(); j++) {
+					cout << j + 1 << ") " << product[j]->machine << " " << product[j]->type << endl;
 				}
-				else { cout << "Объект не создан!" << endl; }
-				break;
-			case '2':
-				if (Air->GetResult() != nullptr) {
-					D->Edit(*CA);
+				cout << ">>";  cin >> ch; /*заита на ввод*/
+				ch--;
+				int check = D->check(product[ch]);
+				if (check == 1) {
+					airliner* A = new airliner;
+					D->EditProdukt(product[ch], *A);
+					*product[ch] = move(*(A->GetResult()));
 				}
-				else { cout << "Объект не создан!" << endl; }
-				break;
-			case '3':
-				if (Air->GetResult() != nullptr) {
-					D->Edit(*Helic);
+				else if (check == 2) {
+					combatAircraft* A = new combatAircraft;
+					D->EditProdukt(product[ch], *A);
+					*product[ch] = move(*(A->GetResult()));
 				}
-				else { cout << "Объект не создан!" << endl; }
-				break;
-			case '4':
-				if (Air->GetResult() != nullptr) {
-					D->Edit(*Quadr);
+				else if (check == 3) {
+					quadcopter* A = new quadcopter;
+					D->EditProdukt(product[ch], *A);
+					*product[ch] = move(*(A->GetResult()));
 				}
-				else { cout << "Объект не создан!" << endl; }
-				break;
-			default:
-				cout << "Ошибка ввода!" << endl;
+				else if (check == 4) {
+					helicopter* A = new helicopter;
+					D->EditProdukt(product[ch], *A);
+					*product[ch] = move(*(A->GetResult()));
+				}
+				/*	if (Air!=nullptr && Air->GetResult() != nullptr) {
+						int i = 0;
+						airliner* A = new airliner;
+						D->EditProdukt(product[i], *A);
+
+					   *product[i] = move(*(A->GetResult()));
+
+					}
+					else { cout << "Объект не создан!" << endl; }
+					break;
+				case '2':
+					if (CA->GetResult() != nullptr) {
+						D->Edit(*CA);
+					}
+					else { cout << "Объект не создан!" << endl; }
+					break;
+				case '3':
+					if (Helic->GetResult() != nullptr) {
+						D->Edit(*Helic);
+					}
+					else { cout << "Объект не создан!" << endl; }
+					break;
+				case '4':
+					if (Quadr->GetResult() != nullptr) {
+						D->Edit(*Quadr);
+					}
+					else { cout << "Объект не создан!" << endl; }
+					break;
+				default:
+					cout << "Ошибка ввода!" << endl;
+				}*/
 			}
 			break;
 		case '3':
 			/*удаление*/
 			if (!product.empty()) {
 				for (int j = 0; j < product.size(); j++) {
-					cout << j + 1 << ") " << product[j]->machine << product[j]->type << endl;
+					cout << j + 1 << ") " << product[j]->machine << " " << product[j]->type << endl;
 				}
-				cout << ">>";
-				cin >> ch;
-				product.erase(product.begin() + ch - 1);
+				cout << ">>";  cin >> ch; /*заита на ввод*/
+				/*int check = D->check(product, ch - 1);
+				if (check == 1) { delete CA; CA = nullptr; }
+				else if (check == 2) { delete Air; Air = nullptr; }
+				else if (check == 3) { delete Quadr; Quadr = nullptr; }
+				else if (check == 4) { delete Helic; Helic = nullptr; }*/
+				product.erase(product.begin() + (ch-1));
 			}
 			else {
 				cout << "Список летательных аппаратов пуст!" << endl;

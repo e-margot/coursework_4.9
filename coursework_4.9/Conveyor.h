@@ -41,4 +41,6 @@ public:
 	string weapon; //тип вооружения
 	Conveyor();
 	~Conveyor();
+	string getMashine();
+	Conveyor(const Conveyor & obj);
 };

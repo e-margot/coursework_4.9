@@ -26,5 +26,6 @@ public:
 	virtual void ofile() {};//вывод в файл
 	virtual void ifile() {};//считывание с файла
 	virtual void getType() {};//считывание с файла
+	virtual void Edit(Conveyor* product) {};//записать в новый объет тот объект который мы хотим изменить
 	virtual Conveyor* GetResult() { return nullptr; };
 };

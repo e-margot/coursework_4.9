@@ -189,3 +189,9 @@ helicopter::~helicopter()
 	if (currentBuilder != nullptr)
 		delete currentBuilder;
 }
+
+void helicopter::Edit(Conveyor* product) {
+
+	currentBuilder->machine = product->machine;
+
+}

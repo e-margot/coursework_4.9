@@ -154,3 +154,11 @@ airliner::airliner()
 void airliner::setMachine() {
 	currentBuilder->machine = "Пассажирский";
 }
+
+
+void airliner::Edit(Conveyor* product) {
+
+	currentBuilder->machine = product->machine;
+
+}
+

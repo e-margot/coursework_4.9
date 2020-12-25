@@ -29,6 +29,7 @@ public:
 	void SetWeapon();
 	void ofile();
 	void ifile();
+	void Edit(Conveyor* product);
 	// Построить часть 1
 		//virtual void BuildLopasti(int lopasti)
 		//{

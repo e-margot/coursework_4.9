@@ -23,9 +23,14 @@ void Director::Construct(Builder& builder)
 	//builder.setWeapon();//тип вооружения
 	builder.ofile();//тип вооружения
 	//builder.ifile();
-}
 
-void Director::Edit(Builder &builder) {
+}
+void Director::EditProdukt(Conveyor* product, Builder& builder)
+{
+	//утечка! надо проверить перед созданием продукта нет ли 
+	builder.CreateProduct();
+	builder.Edit(product);//создали объект копию  
+	//кейс что изменить?
 	cout << "Выберите параметр" << endl;
 	cout << "1.	военный или гражданский\n2.	тип военного аппарата, тип гражданского аппарата\n3.	взлетная масса\n4.	тип двигателей\n5.	число двигателей\n6.	количество крыльев\n7.	расположение крыльев\n8.	тип шасси\n9.	скорость полета\n10.	по типу взлета\n11.		посадки\n12.	способ управления\n13.	экипаж(число человек)\n14.	год производства\n15.	тип вооружения" << endl;
 	int ch = 0;
@@ -36,7 +41,7 @@ void Director::Edit(Builder &builder) {
 		break;
 	case 2:
 		builder.setIsMil(); //  type of military apparatus - тип военного аппарата
-		break;
+	    break;
 	case 3:
 		builder.setWeihht();// takeoff weight - взлетная масса
 		break;
@@ -79,6 +84,60 @@ void Director::Edit(Builder &builder) {
 	}
 }
 
+//void Director::Edit(Builder &builder) {
+//	cout << "Выберите параметр" << endl;
+//	cout << "1.	военный или гражданский\n2.	тип военного аппарата, тип гражданского аппарата\n3.	взлетная масса\n4.	тип двигателей\n5.	число двигателей\n6.	количество крыльев\n7.	расположение крыльев\n8.	тип шасси\n9.	скорость полета\n10.	по типу взлета\n11.		посадки\n12.	способ управления\n13.	экипаж(число человек)\n14.	год производства\n15.	тип вооружения" << endl;
+//	int ch = 0;
+//	cin >> ch;
+//	switch (ch) {
+//	case 1:
+//		builder.setType();
+//		break;
+//	case 2:
+//		builder.setIsMil(); //  type of military apparatus - тип военного аппарата
+//		break;
+//	case 3:
+//		builder.setWeihht();// takeoff weight - взлетная масса
+//		break;
+//	case 4:
+//		builder.setEngine(); //type of engines - тип двигателей
+//		break;
+//	case 5:
+//		builder.setNumEngine(); //number of engines - количество двигателей
+//		break;
+//	case 6:
+//		builder.setWings(); // number of wings - число крыльев
+//		break;
+//	case 7:
+//		builder.setArrangW();//arrangement of wings - расположение крыльев
+//		break;
+//	case 8:
+//		builder.setChassis(); // type of chassis - тип шасси
+//		break;
+//	case 9:
+//		builder.setSpeed();//flight speed - скорость полета
+//		break;
+//	case 10:
+//		builder.setTakeoff();//тип взлета
+//		break;
+//	case 11:
+//		builder.setLanding();//тип посадки
+//		break;
+//	case 12:
+//		builder.setControl(); //метод управления
+//		break;
+//	case 13:
+//		builder.setCrew();//экипаж(число)
+//		break;
+//	case 14:
+//		builder.setYear(); //год производства
+//		break;
+//	case 15:
+//		builder.setWeapon();//тип вооружения
+//		break;
+//	}
+//}
+
 void Director::Del() {
 	ofstream f_ca, f_quadr, f_h, f_air;
 	f_h.open("combatAircraft.txt", ios_base::trunc);
@@ -93,6 +152,18 @@ void Director::Del() {
 
 void Director::Get(Builder& builder) {
 	builder.getType();
+}
+
+void Director::clrFile() {
+	ofstream f_ca, f_quadr, f_h, f_air;
+	f_ca.open("combatAircraft.txt", ios_base::trunc);
+	f_h.open("helic.txt", ios_base::trunc);
+	f_air.open("airliner.txt", ios_base::trunc);
+	f_quadr.open("qudro.txt", ios_base::trunc);
+	f_ca.close();
+	f_h.close();
+	f_air.close();
+	f_quadr.close();
 }
 
 void Director::File(Builder& builder) {
@@ -163,3 +234,12 @@ void Director::File(Builder& builder) {
 	f_air.close();
 	f_quadr.close();
 }*/
+
+int Director::check(Conveyor* product) {
+	if (product->machine == "Военный") { return 1; }
+	else if (product->machine == "Пассажирский") { return 2; }
+	else if (product->machine == "Квадрокоптер") { return 3; }
+	else if (product->machine == "Вертолет") { return 4; }
+	else return -1;
+}
+

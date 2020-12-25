@@ -101,3 +101,9 @@ void quadcopter::ifile() {
 	fin.close();
 }//тип вооружения
 
+
+void quadcopter::Edit(Conveyor* product) {
+
+	currentBuilder->machine = product->machine;
+
+}

@@ -22,3 +22,12 @@ Conveyor::Conveyor() {
 Conveyor::~Conveyor() {
 
 }
+string Conveyor::getMashine() {
+
+	return machine;
+}
+
+Conveyor::Conveyor(const Conveyor& obj) {
+
+
+}
