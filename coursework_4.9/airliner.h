@@ -14,7 +14,7 @@ public:
 	// Реализация виртуальных методов
 	void CreateProduct();
 	void setMachine();
-	void Edit(Conveyor * product);
+	void toCurrBuild(Conveyor * product);
 	void setType();
 	void setIsMil();
 	void setWeihht();
@@ -31,6 +31,7 @@ public:
 	void setYear();
 	void ofile();
 	void ifile();//тип вооружения
+	void Get();
 	Conveyor* GetResult();
 	// Деструктор
 

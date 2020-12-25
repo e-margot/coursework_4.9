@@ -156,9 +156,39 @@ void airliner::setMachine() {
 }
 
 
-void airliner::Edit(Conveyor* product) {
+void airliner::toCurrBuild(Conveyor* product) {
 
 	currentBuilder->machine = product->machine;
-
+	currentBuilder->type = product->type;
+	currentBuilder->isMilitary = product->isMilitary;
+	currentBuilder->weihht = product->weihht;
+	currentBuilder->engine = product->engine;
+	currentBuilder->NumEngine = product->NumEngine;
+	currentBuilder->wings = product->wings;
+	currentBuilder->arrangW = product->arrangW;
+	currentBuilder->chassis = product->chassis;
+	currentBuilder->speed = product->speed;
+	currentBuilder->takeoff = product->takeoff;
+	currentBuilder->landing = product->landing;
+	currentBuilder->control = product->control;
+	currentBuilder->crew = product->crew;
+	currentBuilder->year = product->year;
 }
 
+void airliner::Get() {
+	cout << "Тип: " << currentBuilder->type << endl;
+	cout << "Тип гражданского аппарата: " << currentBuilder->isMilitary << endl;
+	cout << "Взлетная масса: " << currentBuilder->weihht << endl;
+	cout << "Тип двигателей: " << currentBuilder->engine << endl;
+	cout << "Число двигателей: " << currentBuilder->NumEngine << endl;
+	cout << "Количесвто крыльев: " << currentBuilder->wings << endl;
+	cout << "Расположение крыльев: " << currentBuilder->arrangW << endl;
+	cout << "Тип шасси: " << currentBuilder->chassis << endl;
+	cout << "Скорость полета: " << currentBuilder->speed << endl;
+	cout << "По типу взлета: " << currentBuilder->takeoff << endl;
+	cout << "По типу посадки: " << currentBuilder->landing << endl;
+	cout << "Способ управления: " << currentBuilder->control << endl;
+	cout << "Экипаж (число человек): " << currentBuilder->crew << endl;
+	cout << "Год производства:" << currentBuilder->year << endl;
+	cout << "----------------\n";
+}

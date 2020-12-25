@@ -35,10 +35,9 @@ int main() {
 		cout << "1) Создание" << endl;
 		cout << "2) Редактирование" << endl;
 		cout << "3) Удаление" << endl;
-		cout << "4) Сохранение" << endl;
-		cout << "5) Загрузка из файла" << endl;
-		cout << "6) Вывести созданные продукты" << endl;
-		cout << "7) Выход" << endl;
+		cout << "4) Загрузка из файла" << endl;
+		cout << "5) Вывести созданные продукты" << endl;
+		cout << "6) Выход" << endl;
 		cin >> choose1;
 		system("cls");
 		switch (choose1) {
@@ -52,7 +51,7 @@ int main() {
 			cout << ">>";
 			cin >> choose2;
 			switch (choose2) {
-			case '1'://1 2 1
+			case '1':
 				D->Construct(*Air);
 				product.push_back(Air->GetResult());
 				break;
@@ -90,24 +89,25 @@ int main() {
 				int check = D->check(product[ch]);
 				if (check == 1) {
 					airliner* A = new airliner;
-					D->EditProdukt(product[ch], *A);
+					D->EditProduct(product[ch], *A);
 					*product[ch] = move(*(A->GetResult()));
 				}
 				else if (check == 2) {
 					combatAircraft* A = new combatAircraft;
-					D->EditProdukt(product[ch], *A);
+					D->EditProduct(product[ch], *A);
 					*product[ch] = move(*(A->GetResult()));
 				}
 				else if (check == 3) {
 					quadcopter* A = new quadcopter;
-					D->EditProdukt(product[ch], *A);
+					D->EditProduct(product[ch], *A);
 					*product[ch] = move(*(A->GetResult()));
 				}
 				else if (check == 4) {
 					helicopter* A = new helicopter;
-					D->EditProdukt(product[ch], *A);
+					D->EditProduct(product[ch], *A);
 					*product[ch] = move(*(A->GetResult()));
 				}
+			}
 				/*	if (Air!=nullptr && Air->GetResult() != nullptr) {
 						int i = 0;
 						airliner* A = new airliner;
@@ -139,7 +139,7 @@ int main() {
 				default:
 					cout << "Ошибка ввода!" << endl;
 				}*/
-			}
+			
 			break;
 		case '3':
 			/*удаление*/
@@ -160,16 +160,41 @@ int main() {
 			}
 			break;
 		case '4':
-			/*Сохранение в файл*/
-			break;
-		case '5':
+			cout << "Загрузка..." << endl;
 			/*Загрузка из файла*/
 			break;
-		case '6':
+		case '5':
+			if (!product.empty()) {
+				for (int j = 0; j < product.size(); j++) {
+					cout << j + 1 << ") " << product[j]->machine << " " << product[j]->type << endl;
+				}
+				cout << ">>";  cin >> ch; /*заита на ввод*/
+				ch--;
+				int check = D->check(product[ch]);
+				if (check == 1) {
+					airliner* A = new airliner;
+					D->GetProduct(product[ch], *A);
+				//	*product[ch] = move(*(A->GetResult()));
+				}
+				else if (check == 2) {
+					combatAircraft* A = new combatAircraft;
+					D->GetProduct(product[ch], *A);
+				//	*product[ch] = move(*(A->GetResult()));
+				}
+				else if (check == 3) {
+					quadcopter* A = new quadcopter;
+					D->GetProduct(product[ch], *A);
+				//	*product[ch] = move(*(A->GetResult()));
+				}
+				else if (check == 4) {
+					helicopter* A = new helicopter;
+					D->GetProduct(product[ch], *A);
+				//	*product[ch] = move(*(A->GetResult()));
+				}
+			}
 			/*вывести на экран*/
-			D->Get(*CA);
 			break;
-		case '7':
+		case '6':
 			loop = false;
 			break;
 		default:

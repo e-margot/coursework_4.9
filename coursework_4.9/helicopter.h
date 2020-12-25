@@ -6,10 +6,8 @@ private:
 	Conveyor* currentBuilder;
 
 public:
-	// Конструктор
 	helicopter();
 	~helicopter();
-	// Реализация виртуальных методов
 	void CreateProduct();
 	void setMachine();
 	void setType();
@@ -17,9 +15,6 @@ public:
 	void setWeihht();
 	void setEngine();
 	void setNumEngine();
-	void setWings();
-	void setArrangW();
-	void setChassis();
 	void setSpeed();
 	void setTakeoff();
 	void setLanding();
@@ -29,23 +24,7 @@ public:
 	void SetWeapon();
 	void ofile();
 	void ifile();
-	void Edit(Conveyor* product);
-	// Построить часть 1
-		//virtual void BuildLopasti(int lopasti)
-		//{
-		//	cout << "helicopter::currentBuilder->lopasti = " << lopasti << endl;
-		//	currentBuilder->lopasti = lopasti;
-		//}
-
-		//// Построить часть 2
-		//virtual void BuildEngine(int engine)
-		//{
-		//	cout << "helicopter::currentBuilder->engine = " << engine << endl;
-		//	currentBuilder->engine = engine;
-		//}
-
-		// Метод, возвращающий продукт для клиента
-	virtual Conveyor* GetResult();
-	// Деструктор
-
+	void Get();
+	void toCurrBuild(Conveyor* product);
+	Conveyor* GetResult();
 };

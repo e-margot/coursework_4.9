@@ -25,11 +25,11 @@ void Director::Construct(Builder& builder)
 	//builder.ifile();
 
 }
-void Director::EditProdukt(Conveyor* product, Builder& builder)
+void Director::EditProduct(Conveyor* product, Builder& builder)
 {
 	//утечка! надо проверить перед созданием продукта нет ли 
 	builder.CreateProduct();
-	builder.Edit(product);//создали объект копию  
+	builder.toCurrBuild(product);//создали объект копию  
 	//кейс что изменить?
 	cout << "Выберите параметр" << endl;
 	cout << "1.	военный или гражданский\n2.	тип военного аппарата, тип гражданского аппарата\n3.	взлетная масса\n4.	тип двигателей\n5.	число двигателей\n6.	количество крыльев\n7.	расположение крыльев\n8.	тип шасси\n9.	скорость полета\n10.	по типу взлета\n11.		посадки\n12.	способ управления\n13.	экипаж(число человек)\n14.	год производства\n15.	тип вооружения" << endl;
@@ -137,21 +137,23 @@ void Director::EditProdukt(Conveyor* product, Builder& builder)
 //		break;
 //	}
 //}
+//
+//void Director::Del() {
+//	ofstream f_ca, f_quadr, f_h, f_air;
+//	f_h.open("combatAircraft.txt", ios_base::trunc);
+//	f_h.open("helic.txt", ios_base::trunc);
+//	f_air.open("airliner.txt", ios_base::trunc);
+//	f_quadr.open("qudro.txt", ios_base::trunc);
+//	f_ca.close();
+//	f_h.close();
+//	f_air.close();
+//	f_quadr.close();
+//}
 
-void Director::Del() {
-	ofstream f_ca, f_quadr, f_h, f_air;
-	f_h.open("combatAircraft.txt", ios_base::trunc);
-	f_h.open("helic.txt", ios_base::trunc);
-	f_air.open("airliner.txt", ios_base::trunc);
-	f_quadr.open("qudro.txt", ios_base::trunc);
-	f_ca.close();
-	f_h.close();
-	f_air.close();
-	f_quadr.close();
-}
-
-void Director::Get(Builder& builder) {
-	builder.getType();
+void Director::GetProduct(Conveyor * product, Builder & builder) {
+	builder.CreateProduct();
+	builder.toCurrBuild(product);
+	builder.Get();
 }
 
 void Director::clrFile() {
@@ -236,8 +238,8 @@ void Director::File(Builder& builder) {
 }*/
 
 int Director::check(Conveyor* product) {
-	if (product->machine == "Военный") { return 1; }
-	else if (product->machine == "Пассажирский") { return 2; }
+	if (product->machine == "Военный") { return 2; }
+	else if (product->machine == "Пассажирский") { return 1; }
 	else if (product->machine == "Квадрокоптер") { return 3; }
 	else if (product->machine == "Вертолет") { return 4; }
 	else return -1;

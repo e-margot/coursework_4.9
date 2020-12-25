@@ -64,26 +64,6 @@ void helicopter::setNumEngine() {
 	currentBuilder->NumEngine = engine;
 } //number of engines - количество двигателей
 
-void helicopter::setWings() {
-	int wings;
-	cout << "Введите количество крыльев" << endl;
-	cin >> wings;
-	currentBuilder->wings = wings;
-} // number of wings - число крыльев
-
-void helicopter::setArrangW() {
-	string arrangW;
-	cout << "Введите расположение крыльев" << endl;
-	cin >> arrangW;
-	currentBuilder->arrangW = arrangW;
-}//arrangement of wings - расположение крыльев
-
-void helicopter::setChassis() {
-	string chassis;
-	cout << "Введите тип шасси" << endl;
-	cin >> chassis;
-	currentBuilder->chassis = chassis;
-} // type of chassis - тип шасси
 
 void helicopter::setSpeed() {
 	float speed;
@@ -190,8 +170,37 @@ helicopter::~helicopter()
 		delete currentBuilder;
 }
 
-void helicopter::Edit(Conveyor* product) {
-
+void helicopter::toCurrBuild(Conveyor* product) {
 	currentBuilder->machine = product->machine;
+	currentBuilder->type = product->type;
+	currentBuilder->isMilitary = product->isMilitary;
+	currentBuilder->weihht = product->weihht;
+	currentBuilder->engine = product->engine;
+	currentBuilder->NumEngine = product->NumEngine;
+	currentBuilder->speed = product->speed;
+	currentBuilder->takeoff = product->takeoff;
+	currentBuilder->landing = product->landing;
+	currentBuilder->control = product->control;
+	currentBuilder->crew= product->crew;
+	currentBuilder->year= product->year;
+	currentBuilder->weapon= product->weapon;
+}
 
+void helicopter::Get() {
+	cout << "Тип: " << currentBuilder->type << endl;
+	cout << "Тип военного или гражданского аппарата: " << currentBuilder->isMilitary << endl;
+	cout << "Взлетная масса: " << currentBuilder->weihht << endl;
+	cout << "Тип двигателей: " << currentBuilder->engine << endl;
+	cout << "Число двигателей: " << currentBuilder->NumEngine << endl;
+	cout << "Количество крыльев: " << currentBuilder->wings << endl;
+	cout << "Расположение крыльев: " << currentBuilder->arrangW << endl;
+	cout << "Тип шасси: " << currentBuilder->chassis << endl;
+	cout << "Скорость полета: " << currentBuilder->speed << endl;
+	cout << "По типу взлета: " << currentBuilder->takeoff << endl;
+	cout << "По типу посадки: " << currentBuilder->landing << endl;
+	cout << "Способ управления: " << currentBuilder->control << endl;
+	cout << "Экипаж (число человек): " << currentBuilder->crew << endl;
+	cout << "Год производства: " << currentBuilder->year << endl;
+	cout << "Тип вооружения: " << currentBuilder->weapon << endl;
+	cout << "----------------\n";
 }

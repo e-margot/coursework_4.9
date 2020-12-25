@@ -102,8 +102,21 @@ void quadcopter::ifile() {
 }//тип вооружения
 
 
-void quadcopter::Edit(Conveyor* product) {
-
+void quadcopter::toCurrBuild(Conveyor* product) {
 	currentBuilder->machine = product->machine;
-
+	currentBuilder->type = product->type;
+	currentBuilder->isMilitary = product->isMilitary;
+	currentBuilder->weihht = product->weihht;
+	currentBuilder->speed = product->speed;
+	currentBuilder->control = product->control;
+	currentBuilder->year = product->year;
+}
+void quadcopter::Get() {
+	cout << "Тип: " << currentBuilder->type << endl;
+	cout << "Тип гражданского: " << currentBuilder->isMilitary << endl;
+	cout << "Вес: " << currentBuilder ->weihht << endl;
+	cout << "Скорость: " << currentBuilder->speed << endl;
+	cout << "Управление: " << currentBuilder->control << endl;
+	cout << "Год производства: " << currentBuilder->year << endl;
+	cout << "----------------\n";
 }

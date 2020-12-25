@@ -162,14 +162,45 @@ combatAircraft::~combatAircraft()
 		delete currentBuilder;
 }
 
-void combatAircraft::getType(){
-	// << currentBuilder->type << endl;
-}
 void combatAircraft::setMachine() {
 	currentBuilder->machine = "Военный";
 }
-void combatAircraft::Edit(Conveyor* product) {
+void combatAircraft::toCurrBuild(Conveyor* product)
+{
 
 	currentBuilder->machine = product->machine;
+	currentBuilder->type = product->type;
+	currentBuilder->isMilitary = product->isMilitary;
+	currentBuilder->weihht = product->weihht;
+	currentBuilder->engine = product->engine;
+	currentBuilder->NumEngine = product->NumEngine;
+	currentBuilder->wings = product->wings;
+	currentBuilder->arrangW = product->arrangW;
+	currentBuilder->chassis= product->chassis;
+	currentBuilder->speed = product->speed;
+	currentBuilder->takeoff = product->takeoff;
+	currentBuilder->landing = product->landing;
+	currentBuilder->control = product->control;
+	currentBuilder->crew = product->crew;
+	currentBuilder->year = product->year;
+	currentBuilder->weapon = product->weapon;
+}
 
+void combatAircraft::Get() {
+	cout << "Тип: " << currentBuilder->type << endl;
+	cout << "Тип военного апппарата: " << currentBuilder->isMilitary << endl;
+	cout << "Взлетная масса: " << currentBuilder->weihht << endl;
+	cout << "Тип двигателей: " << currentBuilder->engine << endl;
+	cout << "Число двигателей: " << currentBuilder->NumEngine << endl;
+	cout << "Количество крыльев:" << currentBuilder->wings << endl;
+	cout << "Расположение крыльев: " << currentBuilder->arrangW << endl;
+	cout << "Тип шасси: " << currentBuilder->chassis << endl;
+	cout << "Скорость полета: " << currentBuilder->speed << endl;
+	cout << "По типу взлета: " << currentBuilder->takeoff << endl;
+	cout << "По типу посадки: " << currentBuilder->landing << endl;
+	cout << "Способ управление: " << currentBuilder->control << endl;
+	cout << "Экипаж (число человек): " << currentBuilder->crew << endl;
+	cout << "Год производства: " << currentBuilder->year << endl;
+	cout << "Тип вооружения: " << currentBuilder->weapon << endl;
+	cout << "----------------\n";
 }

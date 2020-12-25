@@ -31,6 +31,6 @@ public:
 	void SetWeapon();
 	void ofile();
 	void ifile();
-	void getType();
-	void Edit(Conveyor* product);
+	void Get();
+	void toCurrBuild(Conveyor* product);
 };

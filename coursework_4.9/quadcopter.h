@@ -2,13 +2,11 @@
 #include "Conveyor.h"
 #include "Builder.h"
 
-class quadcopter : public Builder
-{
+class quadcopter : public Builder{
 private:
 	Conveyor* currentBuilder;
 
 public:
-	// Конструктор
 	quadcopter();
 	void CreateProduct();
 	Conveyor* GetResult();
@@ -20,7 +18,9 @@ public:
 	void setSpeed();
 	void setControl();
 	void setYear();
+	void Get();
+//	void Get(Conveyor* product);
 	void ofile();
 	void ifile();
-	void Edit(Conveyor* product);
+	void toCurrBuild(Conveyor* product);
 };
