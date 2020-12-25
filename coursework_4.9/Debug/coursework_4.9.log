@@ -1,2 +1,6 @@
-﻿  airliner.cpp
+﻿  main.cpp
+c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(83): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(114): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(130): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(161): warning C4018: <: несоответствие типов со знаком и без знака
   coursework_4.9.vcxproj -> C:\Users\User\Desktop\coursework_4.9\Debug\coursework_4.9.exe

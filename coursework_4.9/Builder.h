@@ -25,6 +25,7 @@ public:
 	virtual void delType() {};//удаление
 	virtual void ofile() {};//вывод в файл
 	virtual void ifile(vector <Conveyor*>& product) {};//считывание с файла
+	virtual void ofile(vector <Conveyor*>& product) {};
 	virtual void Get() {};//считывание с файла
 	virtual void toCurrBuild(Conveyor* product) {};
 	//virtual void Edit(Conveyor* product) {};//записать в новый объет тот объект который мы хотим изменить

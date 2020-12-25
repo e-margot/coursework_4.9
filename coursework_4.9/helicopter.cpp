@@ -23,11 +23,11 @@ void helicopter::setIsMil() {
 		cout << "2) Военный;" << endl;
 		cin >> ch;
 		if (ch == 1) {
-			currentBuilder->isMilitary = false;
+			currentBuilder->isMilitary = "Гражданский";
 			break;
 		}
 		else if (ch == 2) {
-			currentBuilder->isMilitary = true;
+			currentBuilder->isMilitary = "Военный";
 			break;
 		}
 		else {

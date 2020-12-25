@@ -38,7 +38,11 @@ int main() {
 		cout << "4) Загрузка из файла" << endl;
 		cout << "5) Вывести созданные продукты" << endl;
 		cout << "6) Выход" << endl;
+		cout << "7) Загрузить в файл" << endl;
+	//	getline(cin, choose1);
 		cin >> choose1;
+		cin.ignore();
+		//i = atoi(choose1);
 		system("cls");
 		switch (choose1) {
 		case '1':
@@ -50,6 +54,7 @@ int main() {
 			cout << "4) Квадрокоптер" << endl;
 			cout << ">>";
 			cin >> choose2;
+			cin.ignore();
 			switch (choose2) {
 			case '1':
 				D->Construct(*Air);
@@ -149,6 +154,30 @@ int main() {
 			break;
 		case '6':
 			loop = false;
+			break;
+		case '7':
+			//D->FileWrite(product, *Air);
+			if (!product.empty()) {
+				for (int j = 0; j < product.size(); j++) {
+					int check = D->check(product[j]);
+					if (check == 1) {
+						airliner* A = new airliner;
+						D->FileWrite(product[j], *A);
+					}
+					else if (check == 2) {
+						combatAircraft* A = new combatAircraft;
+						D->FileWrite(product[j], *A);
+					}
+					else if (check == 3) {
+						quadcopter* A = new quadcopter;
+						D->FileWrite(product[j], *A);
+					}
+					else if (check == 4) {
+						helicopter* A = new helicopter;
+						D->FileWrite(product[j], *A);
+					}
+				}
+			}
 			break;
 		default:
 			cout << "Ошибка! Повторите ввод" << endl;

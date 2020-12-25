@@ -1,7 +1,7 @@
 #include "combatAircraft.h"
 
 void combatAircraft::setIsMil() {
-	currentBuilder->isMilitary = true;
+	currentBuilder->isMilitary = "Военный";
 }
 
 void combatAircraft::setType() {

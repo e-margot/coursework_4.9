@@ -10,21 +10,8 @@ using namespace std;
 class Conveyor
 {
 public:
-	/*std::vector<std::string> fly;
-	void ListParts()const {
-		std::cout << "Product info: " << std::endl;
-		for (size_t i = 0; i < fly.size(); i++) {
-			if (fly[i] == fly.back()) {
-				std::cout << fly[i];
-			}
-			else {
-				std::cout << fly[i] << std::endl;
-			}
-		}
-		std::cout << "\n\n";
-	}*/
 	string machine;
-	bool isMilitary; //Военный или гражданский
+	string isMilitary; //Военный или гражданский
 	string type; //military or civilian - тип военный или гражданский
 	float weihht; // takeoff weight - взлетная масса
 	string engine; //type of engines - тип двигателей
@@ -41,6 +28,6 @@ public:
 	string weapon; //тип вооружения
 	Conveyor();
 	~Conveyor();
-	string getMashine();
-	Conveyor(const Conveyor & obj);
+	//string getMashine();
+	//Conveyor(const Conveyor & obj);
 };

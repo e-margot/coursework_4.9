@@ -7,21 +7,21 @@ void Director::Construct(Builder& builder)
 	builder.CreateProduct();
 	builder.setMachine();
 	builder.setType();
-	//builder.setIsMil(); //  type of military apparatus - тип военного аппарата
-	//builder.setWeihht();// takeoff weight - взлетная масса
-	//builder.setEngine(); //type of engines - тип двигателей
-	//builder.setNumEngine(); //number of engines - количество двигателей
-	//builder.setWings(); // number of wings - число крыльев
-	//builder.setArrangW();//arrangement of wings - расположение крыльев
-	//builder.setChassis(); // type of chassis - тип шасси
-	//builder.setSpeed();//flight speed - скорость полета
-	//builder.setTakeoff();//тип взлета
-	//builder.setLanding();//тип посадки
-	//builder.setControl(); //метод управления
-	//builder.setCrew();//экипаж(число)
-	//builder.setYear(); //год производства
-	//builder.setWeapon();//тип вооружения
-	builder.ofile();//тип вооружения
+	builder.setIsMil(); //  type of military apparatus - тип военного аппарата
+	builder.setWeihht();// takeoff weight - взлетная масса
+	builder.setEngine(); //type of engines - тип двигателей
+	builder.setNumEngine(); //number of engines - количество двигателей
+	builder.setWings(); // number of wings - число крыльев
+	builder.setArrangW();//arrangement of wings - расположение крыльев
+	builder.setChassis(); // type of chassis - тип шасси
+	builder.setSpeed();//flight speed - скорость полета
+	builder.setTakeoff();//тип взлета
+	builder.setLanding();//тип посадки
+	builder.setControl(); //метод управления
+	builder.setCrew();//экипаж(число)
+	builder.setYear(); //год производства
+	builder.setWeapon();//тип вооружения
+	//builder.ofile();//тип вооружения
 	//builder.ifile();
 
 }
@@ -183,4 +183,10 @@ int Director::check(Conveyor* product) {
 void Director::FileRead(vector <Conveyor*>& product, Builder& builder)
 {
 	builder.ifile(product);
+}
+void Director::FileWrite(Conveyor * product, Builder & builder){
+	builder.CreateProduct();
+	builder.toCurrBuild(product);
+	builder.ofile();
+	//builder.ofile();
 }

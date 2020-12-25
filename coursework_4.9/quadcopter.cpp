@@ -27,7 +27,7 @@ quadcopter::~quadcopter()
 }
 
 void quadcopter::setIsMil() {
-	currentBuilder->isMilitary = false;
+	currentBuilder->isMilitary = "";
 
 }
 void quadcopter::setType() {

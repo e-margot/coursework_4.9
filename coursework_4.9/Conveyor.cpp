@@ -2,7 +2,7 @@
 
 Conveyor::Conveyor() {
 	machine = "";
-	isMilitary = false; //Военный или гражданский
+	isMilitary = ""; //Военный или гражданский
 	type = ""; //military or civilian - тип военный или гражданский
 	weihht = 0; // takeoff weight - взлетная масса
 	engine = ""; //type of engines - тип двигателей
