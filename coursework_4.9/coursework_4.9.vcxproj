@@ -132,6 +132,9 @@
     <ClInclude Include="helicopter.h" />
     <ClInclude Include="quadcopter.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="airliner.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

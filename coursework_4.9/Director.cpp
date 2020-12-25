@@ -84,71 +84,6 @@ void Director::EditProduct(Conveyor* product, Builder& builder)
 	}
 }
 
-//void Director::Edit(Builder &builder) {
-//	cout << "Выберите параметр" << endl;
-//	cout << "1.	военный или гражданский\n2.	тип военного аппарата, тип гражданского аппарата\n3.	взлетная масса\n4.	тип двигателей\n5.	число двигателей\n6.	количество крыльев\n7.	расположение крыльев\n8.	тип шасси\n9.	скорость полета\n10.	по типу взлета\n11.		посадки\n12.	способ управления\n13.	экипаж(число человек)\n14.	год производства\n15.	тип вооружения" << endl;
-//	int ch = 0;
-//	cin >> ch;
-//	switch (ch) {
-//	case 1:
-//		builder.setType();
-//		break;
-//	case 2:
-//		builder.setIsMil(); //  type of military apparatus - тип военного аппарата
-//		break;
-//	case 3:
-//		builder.setWeihht();// takeoff weight - взлетная масса
-//		break;
-//	case 4:
-//		builder.setEngine(); //type of engines - тип двигателей
-//		break;
-//	case 5:
-//		builder.setNumEngine(); //number of engines - количество двигателей
-//		break;
-//	case 6:
-//		builder.setWings(); // number of wings - число крыльев
-//		break;
-//	case 7:
-//		builder.setArrangW();//arrangement of wings - расположение крыльев
-//		break;
-//	case 8:
-//		builder.setChassis(); // type of chassis - тип шасси
-//		break;
-//	case 9:
-//		builder.setSpeed();//flight speed - скорость полета
-//		break;
-//	case 10:
-//		builder.setTakeoff();//тип взлета
-//		break;
-//	case 11:
-//		builder.setLanding();//тип посадки
-//		break;
-//	case 12:
-//		builder.setControl(); //метод управления
-//		break;
-//	case 13:
-//		builder.setCrew();//экипаж(число)
-//		break;
-//	case 14:
-//		builder.setYear(); //год производства
-//		break;
-//	case 15:
-//		builder.setWeapon();//тип вооружения
-//		break;
-//	}
-//}
-//
-//void Director::Del() {
-//	ofstream f_ca, f_quadr, f_h, f_air;
-//	f_h.open("combatAircraft.txt", ios_base::trunc);
-//	f_h.open("helic.txt", ios_base::trunc);
-//	f_air.open("airliner.txt", ios_base::trunc);
-//	f_quadr.open("qudro.txt", ios_base::trunc);
-//	f_ca.close();
-//	f_h.close();
-//	f_air.close();
-//	f_quadr.close();
-//}
 
 void Director::GetProduct(Conveyor * product, Builder & builder) {
 	builder.CreateProduct();
@@ -245,3 +180,7 @@ int Director::check(Conveyor* product) {
 	else return -1;
 }
 
+void Director::FileRead(vector <Conveyor*>& product, Builder& builder)
+{
+	builder.ifile(product);
+}

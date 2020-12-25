@@ -24,7 +24,7 @@ public:
 	virtual void setWeapon() {};//тип вооружения
 	virtual void delType() {};//удаление
 	virtual void ofile() {};//вывод в файл
-	virtual void ifile() {};//считывание с файла
+	virtual void ifile(vector <Conveyor*>& product) {};//считывание с файла
 	virtual void Get() {};//считывание с файла
 	virtual void toCurrBuild(Conveyor* product) {};
 	//virtual void Edit(Conveyor* product) {};//записать в новый объет тот объект который мы хотим изменить

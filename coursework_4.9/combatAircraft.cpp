@@ -167,7 +167,6 @@ void combatAircraft::setMachine() {
 }
 void combatAircraft::toCurrBuild(Conveyor* product)
 {
-
 	currentBuilder->machine = product->machine;
 	currentBuilder->type = product->type;
 	currentBuilder->isMilitary = product->isMilitary;

@@ -112,14 +112,82 @@ void airliner::ofile() {
 	fout << "Способ управления: " << currentBuilder->control << endl;
 	fout << "Экипаж (число человек): " << currentBuilder->crew << endl;
 	fout << "Год производства:" << currentBuilder->year << endl;
-	fout << "----------------\n";
+	//fout << "----------------\n";
 	fout.close();
 }
-void airliner::ifile() {
-	char line[100][100];
+
+void airliner::ifile(vector <Conveyor*>& product) {
+	//char line[100][100]; 
+	string str;
 	ifstream fin;
+	currentBuilder = new Conveyor();
 	fin.open("airliner.txt", ios::in);
-	if (!fin)
+
+	if (!fin.is_open())
+		throw exception("Файл не удалось открыть!\n");
+
+	if (fin.peek() == EOF)
+		throw exception("Фвйл пуст!\n");
+	int count = 1, pos = 0;
+	while (fin.peek() != EOF) // Read data from file
+	{
+		getline(fin, str);
+		//if (str.empty()) continue;
+	
+		currentBuilder->machine = "Пассажирский";
+		//14 полей   
+		switch (count)
+		{
+		case 1:
+			if (pos = str.find("Тип: ") != 0) throw exception("wer\n");
+				
+			currentBuilder->type = str.substr(5);
+			break;
+		case 2:
+			break;
+		case 3:
+			if (pos = str.find("Взлетная масса: ") != 0)
+				throw exception("\n");
+
+			str = str.substr(6);
+			/*if (!num_valid(tmp))
+				throw exception("\n");*/
+
+			currentBuilder->weihht = atoi(str.c_str()); // Convert string to integer
+			if (currentBuilder->weihht < 0)
+				throw exception("qweq\n");
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		case 8:
+			break;
+		case 9:
+			break;
+		case 10:
+			break;
+		case 11:
+			break;
+		case 12:
+			break;
+		case 13:
+			break;
+		case 14:
+			product.push_back(currentBuilder);
+			count = 0;
+			currentBuilder = new Conveyor();
+		default:
+			break;
+		}
+		count++;
+	}
+	
+	/*if (!fin)
 	{
 		cout << "Файл не открыт\n\n";
 		return;
@@ -130,7 +198,7 @@ void airliner::ifile() {
 	{
 		cout << line[j] << endl;
 	}
-	system("pause");
+	system("pause");*/
 	fin.close();
 }
 Conveyor* airliner::GetResult()
@@ -144,12 +212,12 @@ airliner::~airliner()
 }
 void airliner::CreateProduct()
 {
-	cout << "создали самолет №" << endl;
 	currentBuilder = new Conveyor();
 }
 airliner::airliner()
 {
 	currentBuilder = nullptr;
+	
 }
 void airliner::setMachine() {
 	currentBuilder->machine = "Пассажирский";
@@ -190,5 +258,5 @@ void airliner::Get() {
 	cout << "Способ управления: " << currentBuilder->control << endl;
 	cout << "Экипаж (число человек): " << currentBuilder->crew << endl;
 	cout << "Год производства:" << currentBuilder->year << endl;
-	cout << "----------------\n";
+	//cout << "----------------\n";
 }

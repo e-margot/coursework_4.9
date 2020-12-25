@@ -1,6 +1,5 @@
 #include "Conveyor.h"
 
-
 Conveyor::Conveyor() {
 	machine = "";
 	isMilitary = false; //¬оенный или гражданский
@@ -20,14 +19,5 @@ Conveyor::Conveyor() {
 	weapon = ""; //тип вооружени€
 }
 Conveyor::~Conveyor() {
-
-}
-string Conveyor::getMashine() {
-
-	return machine;
-}
-
-Conveyor::Conveyor(const Conveyor& obj) {
-
 
 }

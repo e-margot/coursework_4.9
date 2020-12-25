@@ -32,6 +32,7 @@ public:
 	void ofile();
 	void ifile();//тип вооружения
 	void Get();
+	void ifile(vector<Conveyor*>& product);
 	Conveyor* GetResult();
 	// Деструктор
 

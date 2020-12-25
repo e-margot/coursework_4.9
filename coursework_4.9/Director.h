@@ -15,6 +15,7 @@ public:
 	void File(Builder& builder);
 	void clrFile();
 	int check(Conveyor* product);
+	void FileRead(vector <Conveyor*>& product, Builder & builder);
 	//void File(vector <Conveyor*> product);
 	//void Edit(vector <Conveyor*> product);
 };

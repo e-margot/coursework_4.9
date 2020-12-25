@@ -1,10 +1,2 @@
 ﻿  airliner.cpp
-  combatAircraft.cpp
-  combatAircraft.h
-  helicopter.cpp
-  main.cpp
-c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(84): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(147): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(168): warning C4018: <: несоответствие типов со знаком и без знака
-  Создание кода...
   coursework_4.9.vcxproj -> C:\Users\User\Desktop\coursework_4.9\Debug\coursework_4.9.exe

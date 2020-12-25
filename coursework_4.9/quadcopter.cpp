@@ -101,7 +101,6 @@ void quadcopter::ifile() {
 	fin.close();
 }//тип вооружения
 
-
 void quadcopter::toCurrBuild(Conveyor* product) {
 	currentBuilder->machine = product->machine;
 	currentBuilder->type = product->type;
@@ -111,6 +110,7 @@ void quadcopter::toCurrBuild(Conveyor* product) {
 	currentBuilder->control = product->control;
 	currentBuilder->year = product->year;
 }
+
 void quadcopter::Get() {
 	cout << "Тип: " << currentBuilder->type << endl;
 	cout << "Тип гражданского: " << currentBuilder->isMilitary << endl;

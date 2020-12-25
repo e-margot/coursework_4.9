@@ -67,19 +67,13 @@ int main() {
 				D->Construct(*Quadr);
 				product.push_back(Quadr->GetResult());
 				break;
+			default:
+				cout << "Ошибка! Повторите ввод" << endl;
 			}
 			break;
 		case '2':
 			/*редактирование*/
 			cout << "РЕДАКТИРОВАНИЕ" << endl;
-		/*	cout << "1) Пассажирский самолет" << endl;
-			cout << "2) Военный самолет" << endl;
-			cout << "3) Вертолет" << endl;
-			cout << "4) Квадрокоптер" << endl;
-			cout << ">>";*/
-			//cin >> choose2;
-			/*switch (choose2) {
-			case '1':*/
 			if (!product.empty()) {
 				for (int j = 0; j < product.size(); j++) {
 					cout << j + 1 << ") " << product[j]->machine << " " << product[j]->type << endl;
@@ -107,39 +101,7 @@ int main() {
 					D->EditProduct(product[ch], *A);
 					*product[ch] = move(*(A->GetResult()));
 				}
-			}
-				/*	if (Air!=nullptr && Air->GetResult() != nullptr) {
-						int i = 0;
-						airliner* A = new airliner;
-						D->EditProdukt(product[i], *A);
-
-					   *product[i] = move(*(A->GetResult()));
-
-					}
-					else { cout << "Объект не создан!" << endl; }
-					break;
-				case '2':
-					if (CA->GetResult() != nullptr) {
-						D->Edit(*CA);
-					}
-					else { cout << "Объект не создан!" << endl; }
-					break;
-				case '3':
-					if (Helic->GetResult() != nullptr) {
-						D->Edit(*Helic);
-					}
-					else { cout << "Объект не создан!" << endl; }
-					break;
-				case '4':
-					if (Quadr->GetResult() != nullptr) {
-						D->Edit(*Quadr);
-					}
-					else { cout << "Объект не создан!" << endl; }
-					break;
-				default:
-					cout << "Ошибка ввода!" << endl;
-				}*/
-			
+			}			
 			break;
 		case '3':
 			/*удаление*/
@@ -148,11 +110,6 @@ int main() {
 					cout << j + 1 << ") " << product[j]->machine << " " << product[j]->type << endl;
 				}
 				cout << ">>";  cin >> ch; /*заита на ввод*/
-				/*int check = D->check(product, ch - 1);
-				if (check == 1) { delete CA; CA = nullptr; }
-				else if (check == 2) { delete Air; Air = nullptr; }
-				else if (check == 3) { delete Quadr; Quadr = nullptr; }
-				else if (check == 4) { delete Helic; Helic = nullptr; }*/
 				product.erase(product.begin() + (ch-1));
 			}
 			else {
@@ -161,7 +118,7 @@ int main() {
 			break;
 		case '4':
 			cout << "Загрузка..." << endl;
-			/*Загрузка из файла*/
+			D->FileRead(product, *Air);
 			break;
 		case '5':
 			if (!product.empty()) {
@@ -174,22 +131,18 @@ int main() {
 				if (check == 1) {
 					airliner* A = new airliner;
 					D->GetProduct(product[ch], *A);
-				//	*product[ch] = move(*(A->GetResult()));
 				}
 				else if (check == 2) {
 					combatAircraft* A = new combatAircraft;
 					D->GetProduct(product[ch], *A);
-				//	*product[ch] = move(*(A->GetResult()));
 				}
 				else if (check == 3) {
 					quadcopter* A = new quadcopter;
 					D->GetProduct(product[ch], *A);
-				//	*product[ch] = move(*(A->GetResult()));
 				}
 				else if (check == 4) {
 					helicopter* A = new helicopter;
 					D->GetProduct(product[ch], *A);
-				//	*product[ch] = move(*(A->GetResult()));
 				}
 			}
 			/*вывести на экран*/
@@ -202,6 +155,7 @@ int main() {
 		}
 		system("pause");
 	} while (loop);
+
 	system("cls");
 	delete Quadr;
 	delete D;
