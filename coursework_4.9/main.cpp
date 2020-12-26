@@ -144,7 +144,34 @@ int main() {
 			cout << "Выберите пункт '6' для обновления файлов." << endl;
 			break;
 		case 4:
-			D->FileRead(product, *Air);
+			cout << "1) Пассажирский самолет" << endl;
+			cout << "2) Военный самолет" << endl;
+			cout << "3) Вертолет" << endl;
+			cout << "4) Квадрокоптер" << endl;
+			cout << ">> ";
+			getline(cin, tmp);
+			//cin >> choose1;
+			//cin.ignore();
+			choose2 = atoi(tmp.c_str());
+			system("cls");
+			if (choose2 == 1) {
+				airliner* A = new airliner;
+				D->FileRead(product, *A);
+			}
+			else if (choose2 == 2) {
+				combatAircraft* A = new combatAircraft;
+				D->FileRead(product, *A);
+			}
+			else if (choose2 == 3) {
+				quadcopter* A = new quadcopter;
+				D->FileRead(product, *A);
+			}
+			else if (choose2 == 4) {
+				helicopter* A = new helicopter;
+				D->FileRead(product, *A);
+			}
+			else { cout << "Файлов не существует." << endl; }
+		//	D->FileRead(product, *Air);
 			cout << "Загрузка завершена." << endl;
 			system("pause");
 			break;

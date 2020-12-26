@@ -30,9 +30,8 @@ public:
 	void setYear();
 	void setWeapon();
 	void ofile();
-	void ifile();
+	void ifile(vector <Conveyor*>& product);
 	void Get();
 	bool isNum(float num) override;
 	void toCurrBuild(Conveyor* product);
-	void ifile(vector<Conveyor*>& product);
 };

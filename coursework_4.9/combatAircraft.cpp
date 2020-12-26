@@ -11,7 +11,7 @@ void combatAircraft::setIsMil() {
 	currentBuilder->isMilitary = "Военный";
 }
 void combatAircraft::setType() {
-	cout << "Тип военного аппарата: " << endl;
+	cout << "Тип военного аппарата" << endl;
 	cout << ">> ";
 	getline(cin, currentBuilder->type);
 	system("cls");
@@ -146,8 +146,8 @@ void combatAircraft::setWeapon() {
 void combatAircraft::ofile() {
 	ofstream fout;
 	fout.open("combatAircraft.txt", ios_base::app);
-	fout << "Тип: " << currentBuilder->type << endl;
-	fout << "Тип военного апппарата: " << currentBuilder->isMilitary << endl;
+	fout << "Тип: " << currentBuilder->isMilitary << endl;
+	fout << "Тип военного апппарата: " << currentBuilder->type << endl;
 	fout << "Взлетная масса: " << currentBuilder->weihht << endl;
 	fout << "Тип двигателей: " << currentBuilder->engine << endl;
 	fout << "Число двигателей: " << currentBuilder->NumEngine << endl;
@@ -161,28 +161,221 @@ void combatAircraft::ofile() {
 	fout << "Экипаж (число человек): " << currentBuilder->crew << endl;
 	fout << "Год производства: " << currentBuilder->year << endl;
 	fout << "Тип вооружения: " << currentBuilder->weapon << endl;
-	fout << "----------------\n";
 	fout.close();
 }
 
-void combatAircraft::ifile() {
-	char line[100][100];
+void combatAircraft::ifile(vector <Conveyor*>& product) {
+	string str;
 	ifstream fin;
+	currentBuilder = new Conveyor();
 	fin.open("combatAircraft.txt", ios::in);
-	if (!fin)
+	try {
+		if (!fin.is_open())
+			throw 1;
+
+		if (fin.peek() == EOF)
+			throw 1;
+	}
+	catch (int i)
 	{
-		cout << "Файл не открыт\n\n";
+		cout << "Не удалось открыть файл." << endl;
 		return;
 	}
-	int count = 0;
-	while (fin.getline(line[count], 100)) count++;
-	for (int j = 0; j < count; j++)
+	int count = 1, pos = 0;
+	while (fin.peek() != EOF)
 	{
-		cout << line[j] << endl;
+		getline(fin, str);
+
+		currentBuilder->machine = "Военный";
+
+		switch (count)
+		{
+		case 1:
+			try {
+				if (pos = str.find("Тип: ") != 0) throw 1;
+				currentBuilder->isMilitary = str.substr(5);
+			}
+			catch (int i) {
+				currentBuilder->isMilitary = "-";
+			}
+			break;
+		case 2:
+			try {
+				if (pos = str.find("Тип военного аппарата: ") != 0) throw 1;
+				currentBuilder->type = str.substr(27);
+			}
+			catch (int i) {
+				currentBuilder->type = "-";
+			}
+
+			break;
+		case 3:
+			try {
+				if (pos = str.find("Взлетная масса: ") != 0)
+					throw 1;
+				str = str.substr(16);
+
+				currentBuilder->weihht = atoi(str.c_str());
+				if (!isNum(currentBuilder->weihht))
+					throw 1;
+
+			}
+			catch (int i) {
+				currentBuilder->weihht = 0;
+			}
+			break;
+		case 4:
+			try {
+				if (pos = str.find("Тип двигателей: ") != 0) throw 1;
+				currentBuilder->engine = str.substr(16);
+			}
+			catch (int i) {
+				currentBuilder->engine = "-";
+			}
+			break;
+		case 5:
+			try {
+				if (pos = str.find("Число двигателей: ") != 0) throw 1;
+
+				str = str.substr(18);
+
+				currentBuilder->NumEngine = atoi(str.c_str());
+				if (!isNum(currentBuilder->NumEngine))
+					throw 1;
+			}
+			catch (int i) {
+				currentBuilder->NumEngine = 0;
+			}
+			break;
+		case 6:
+			try {
+				if (pos = str.find("Количество крыльев: ") != 0) throw 1;
+
+				str = str.substr(20);
+
+				currentBuilder->wings = atoi(str.c_str());
+				if (!isNum(currentBuilder->wings))
+					throw 1;
+
+			}
+			catch (int i) {
+				currentBuilder->wings = 0;
+			}
+			break;
+		case 7:
+			try {
+				if (pos = str.find("Расположение крыльев: ") != 0) throw 1;
+				currentBuilder->arrangW = str.substr(22);
+			}
+			catch (int i) {
+				currentBuilder->arrangW = "-";
+			}
+			break;
+		case 8:
+			try {
+				if (pos = str.find("Тип шасси: ") != 0) throw 1;
+
+				currentBuilder->chassis = str.substr(11);
+			}
+			catch (int i) {
+				currentBuilder->chassis = "-";
+			}
+			break;
+		case 9:
+			try {
+				if (pos = str.find("Скорость полета: ") != 0)
+					throw 1;
+
+				str = str.substr(17);
+
+				currentBuilder->speed = atoi(str.c_str());
+				if (!isNum(currentBuilder->speed))
+					throw 1;
+			}
+			catch (int i) {
+				currentBuilder->speed = 0;
+			}
+			break;
+		case 10:
+			try {
+				if (pos = str.find("По типу взлета: ") != 0) throw 1;
+
+				currentBuilder->takeoff = str.substr(16);
+			}
+			catch (int i) {
+				currentBuilder->takeoff = "-";
+			}
+			break;
+		case 11:
+			try {
+				if (pos = str.find("По типу посадки: ") != 0) throw 1;
+
+				currentBuilder->landing = str.substr(17);
+			}
+			catch (int i) {
+				currentBuilder->landing = "-";
+			}
+			break;
+		case 12:
+			try {
+				if (pos = str.find("Способ управления: ") != 0) throw 1;
+
+				currentBuilder->control = str.substr(11);
+			}
+			catch (int i) {
+				currentBuilder->control = "-";
+			}
+			break;
+		case 13:
+			try {
+				if (pos = str.find("Экипаж (число человек): ") != 0)
+					throw 1;
+
+				str = str.substr(24);
+
+				currentBuilder->crew = atoi(str.c_str());
+				if (!isNum(currentBuilder->crew))
+					throw 1;
+			}
+			catch (int i) {
+				currentBuilder->crew = 0;
+			}
+			break;
+		case 14:
+			try {
+				if (pos = str.find("Год производства: ") != 0)
+					throw 1;
+
+				str = str.substr(18);
+
+				currentBuilder->year = atoi(str.c_str());
+				if ((currentBuilder->year) < 1920 || currentBuilder->year > 2020)
+					throw 1;
+			}
+			catch (int i) {
+				currentBuilder->year = 2020;
+			}
+			
+			break;
+		case 15: 
+			try {
+				if (pos = str.find("Тип вооружения: ") != 0) throw 1;
+
+				currentBuilder->weapon = str.substr(16);
+			}
+			catch (int i) {
+				currentBuilder->weapon = "-";
+			}
+			product.push_back(currentBuilder);
+			count = 0;
+			currentBuilder = new Conveyor();
+		default:
+			break;
+		}
+		count++;
 	}
-	system("pause");
 	fin.close();
-}//тип вооружения
+}
 
 combatAircraft::combatAircraft()
 {
@@ -226,8 +419,8 @@ void combatAircraft::toCurrBuild(Conveyor* product)
 }
 
 void combatAircraft::Get() {
-	cout << "Тип: " << currentBuilder->type << endl;
-	cout << "Тип военного апппарата: " << currentBuilder->isMilitary << endl;
+	cout << "Тип: " << currentBuilder->isMilitary << endl;
+	cout << "Тип военного апппарата: " << currentBuilder->type << endl;
 	cout << "Взлетная масса: " << currentBuilder->weihht << endl;
 	cout << "Тип двигателей: " << currentBuilder->engine << endl;
 	cout << "Число двигателей: " << currentBuilder->NumEngine << endl;
@@ -244,132 +437,3 @@ void combatAircraft::Get() {
 	cout << "----------------\n";
 }
 
-void combatAircraft::ifile(vector <Conveyor*>& product) {
-	string str;
-	ifstream fin;
-	currentBuilder = new Conveyor();
-	fin.open("combatAircraft.txt", ios::in);
-
-	if (!fin.is_open())
-		throw exception("Файл не удалось открыть!\n");
-
-	if (fin.peek() == EOF)
-		throw exception("Фaйл пуст!\n"); //не вызывать искл, а просто выходить
-	int count = 1, pos = 0;
-	while (fin.peek() != EOF)
-	{
-		getline(fin, str);
-
-		currentBuilder->machine = "Пассажирский";
-
-		switch (count)
-		{
-		case 1:
-			if (pos = str.find("Тип: ") != 0) throw exception("Пустое значение\n");
-
-			currentBuilder->type = str.substr(5);
-			break;
-		case 2:
-			if (pos = str.find("Тип гражданского аппарата: ") != 0) throw exception("Пустое значение\n");
-
-			currentBuilder->isMilitary = str.substr(27);
-			break;
-		case 3:
-			if (pos = str.find("Взлетная масса: ") != 0)
-				throw exception("Пустое значение\n");
-
-			str = str.substr(16);
-
-			currentBuilder->weihht = atoi(str.c_str());
-			if (!isNum(currentBuilder->weihht))
-				throw exception("Значение не определено\n");
-			break;
-		case 4:
-			if (pos = str.find("Тип двигателей: ") != 0) throw exception("Пустое значение\n");
-
-			currentBuilder->engine = str.substr(16);
-			break;
-		case 5:
-			if (pos = str.find("Число двигателей: ") != 0) throw exception("Пустое значение\n");
-
-			str = str.substr(18);
-
-			currentBuilder->NumEngine = atoi(str.c_str());
-			if (!isNum(currentBuilder->NumEngine))
-				throw exception("Значение не определено\n");
-			break;
-		case 6:
-			if (pos = str.find("Количество крыльев: ") != 0) throw exception("Пустое значение\n");
-
-			str = str.substr(20);
-
-			currentBuilder->wings = atoi(str.c_str());
-			if (!isNum(currentBuilder->wings))
-				throw exception("Значение не определено\n");
-			break;
-		case 7:
-			if (pos = str.find("Расположение крыльев: ") != 0) throw exception("Пустое значение\n");
-
-			currentBuilder->arrangW = str.substr(22);
-			break;
-		case 8:
-			if (pos = str.find("Тип шасси: ") != 0) throw exception("Пустое значение\n");
-
-			currentBuilder->chassis = str.substr(11);
-			break;
-		case 9:
-			if (pos = str.find("Скорость полета: ") != 0)
-				throw exception("Пустое значение\n");
-
-			str = str.substr(17);
-
-			currentBuilder->speed = atoi(str.c_str());
-			if (!isNum(currentBuilder->speed))
-				throw exception("Значение не определено\n");
-			break;
-		case 10:
-			if (pos = str.find("По типу взлета: ") != 0) throw exception("Пустое значение\n");
-
-			currentBuilder->takeoff = str.substr(17); //искл
-
-			break;
-		case 11:
-			if (pos = str.find("По типу посадки: ") != 0) throw exception("Пустое значение\n");
-
-			currentBuilder->landing = str.substr(16);
-			break;
-		case 12:
-			if (pos = str.find("Способ управления: ") != 0) throw exception("Пустое значение\n");
-
-			currentBuilder->control = str.substr(11);
-			break;
-		case 13:
-			if (pos = str.find("Экипаж (число человек): ") != 0)
-				throw exception("Пустое значение\n");
-
-			str = str.substr(24);
-
-			currentBuilder->crew = atoi(str.c_str());
-			if (!isNum(currentBuilder->crew))
-				throw exception("Значение не определено\n");
-			break;
-		case 14:
-			if (pos = str.find("Год производства: ") != 0)
-				throw exception("Пустое значение\n");
-
-			str = str.substr(18);
-
-			currentBuilder->year = atoi(str.c_str());
-			if ((currentBuilder->year) < 1920 || currentBuilder->year > 2020)
-				throw exception("Значение не определено\n");
-			product.push_back(currentBuilder);
-			count = 0;
-			currentBuilder = new Conveyor();
-			break;
-		default:
-			break;
-		}
-		count++;
-	}
-	fin.close();
-}

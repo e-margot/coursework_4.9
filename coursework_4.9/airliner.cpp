@@ -141,7 +141,6 @@ void airliner::ofile() {
 	fout << "Способ управления: " << currentBuilder->control << endl;
 	fout << "Экипаж (число человек): " << currentBuilder->crew << endl;
 	fout << "Год производства: " << currentBuilder->year << endl;
-	//fout << "----------------\n";
 	fout.close();
 }
 
@@ -150,12 +149,18 @@ void airliner::ifile(vector <Conveyor*>& product) {
 	ifstream fin;
 	currentBuilder = new Conveyor();
 	fin.open("airliner.txt", ios::in);
+	try {
+		if (!fin.is_open())
+			throw 1;
 
-	if (!fin.is_open())
-		throw exception("Файл не удалось открыть!\n");
-
-	if (fin.peek() == EOF)
-		throw exception("Фaйл пуст!\n"); //не вызывать искл, а просто выходить
+		if (fin.peek() == EOF)
+			throw 1;
+	}
+	catch (int i)
+	{
+		cout << "Не удалось открыть файл." << endl;
+		return;
+	}
 	int count = 1, pos = 0;
 	while (fin.peek() != EOF) 
 	{
@@ -278,7 +283,6 @@ void airliner::ifile(vector <Conveyor*>& product) {
 				currentBuilder->takeoff = str.substr(16); 
 			}
 			catch (int i) {
-				cout << "вызвано иск takeoff" << endl;
 				currentBuilder->takeoff = "-";
 			}
 			break;

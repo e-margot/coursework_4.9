@@ -12,7 +12,7 @@ public:
 	void CreateProduct() override;
 	void setMachine() override;
 	void setType() override;
-	void setIsMil() override;
+	void setIsMil() override  {};
 	void setWeihht() override;
 	void setControl() override;
 	void setYear() override;
