@@ -147,7 +147,7 @@ void combatAircraft::ofile() {
 	ofstream fout;
 	fout.open("combatAircraft.txt", ios_base::app);
 	fout << "Тип: " << currentBuilder->isMilitary << endl;
-	fout << "Тип военного апппарата: " << currentBuilder->type << endl;
+	fout << "Тип военного аппарата: " << currentBuilder->type << endl;
 	fout << "Взлетная масса: " << currentBuilder->weihht << endl;
 	fout << "Тип двигателей: " << currentBuilder->engine << endl;
 	fout << "Число двигателей: " << currentBuilder->NumEngine << endl;
@@ -202,7 +202,7 @@ void combatAircraft::ifile(vector <Conveyor*>& product) {
 		case 2:
 			try {
 				if (pos = str.find("Тип военного аппарата: ") != 0) throw 1;
-				currentBuilder->type = str.substr(27);
+				currentBuilder->type = str.substr(23);
 			}
 			catch (int i) {
 				currentBuilder->type = "-";

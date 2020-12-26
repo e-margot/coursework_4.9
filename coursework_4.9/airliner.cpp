@@ -153,12 +153,20 @@ void airliner::ifile(vector <Conveyor*>& product) {
 		if (!fin.is_open())
 			throw 1;
 
+	}
+	catch (int i)
+	{
+		cout << "Не удалось открыть файл." << endl;
+		return;
+	}
+	try {
+
 		if (fin.peek() == EOF)
 			throw 1;
 	}
 	catch (int i)
 	{
-		cout << "Не удалось открыть файл." << endl;
+		cout << "Файл пуст." << endl;
 		return;
 	}
 	int count = 1, pos = 0;

@@ -30,7 +30,6 @@ void Director::EditProduct(Conveyor* product, Builder& builder){
 	cout << "1.	военный или гражданский\n2.	тип военного аппарата, тип гражданского аппарата\n3.	взлетная масса\n4.	тип двигателей\n5.	число двигателей\n6.	количество крыльев\n7.	расположение крыльев\n8.	тип шасси\n9.	скорость полета\n10.	по типу взлета\n11.	по типу посадки\n12.	способ управления\n13.	экипаж(число человек)\n14.	год производства\n15.	тип вооружения" << endl;
 	getline(cin, tmp);
 	ch = atoi(tmp.c_str());
-
 	switch (ch) {
 	case 1:
 		builder.setType();
@@ -77,7 +76,10 @@ void Director::EditProduct(Conveyor* product, Builder& builder){
 	case 15:
 		builder.setWeapon();
 		break;
+	default:
+		cout << "Некорректный ввод!" << endl;
 	}
+	
 }
 
 

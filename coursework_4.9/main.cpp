@@ -38,12 +38,10 @@ int main() {
 		cout << "6) Загрузить в файл" << endl;
 		cout << "7) Выход" << endl;
 		getline(cin, tmp);
-		//cin.ignore();
 		choose1 = atoi(tmp.c_str());
 		system("cls");
 		switch (choose1) {
 		case 1:
-			/*создание*/
 			cout << "СОЗДАНИЕ" << endl;
 			cout << "1) Пассажирский самолет" << endl;
 			cout << "2) Военный самолет" << endl;
@@ -51,8 +49,6 @@ int main() {
 			cout << "4) Квадрокоптер" << endl;
 			cout << ">> ";
 			getline(cin, tmp);
-			//cin >> choose1;
-			//cin.ignore();
 			choose2 = atoi(tmp.c_str());
 			system("cls");
 			switch (choose2) {
@@ -77,7 +73,6 @@ int main() {
 			}
 			break;
 		case 2:
-			/*редактирование*/
 			cout << "РЕДАКТИРОВАНИЕ" << endl;
 			if (!product.empty()) {
 				for (int j = 0; j < product.size(); j++) {
@@ -112,34 +107,35 @@ int main() {
 					D->EditProduct(product[ch], *A);
 					*product[ch] = move(*(A->GetResult()));
 				}
-			}		
+
+				cout << "Выберите пункт '6' для обновления файлов." << endl;
+			}	
+			else {
+				cout << "Список летательных аппаратов пуст!" << endl;
+			}
 			D->clrFile();
-			cout << "Выберите пункт '6' для обновления файлов." << endl;
 			system("pause");
 			break;
 		case 3:
-			/*удаление*/
 			if (!product.empty()) {
 				for (int j = 0; j < product.size(); j++) {
 					cout << j + 1 << ") " << product[j]->machine << " " << product[j]->type << endl;
-				}
-				cout << ">> ";  
+				} 
 				do {
 					cout << ">> ";
 					getline(cin, tmp);
 					ch = atoi(tmp.c_str());
-
+					system("cls");
 				} while (ch<0 || ch>product.size());
 			
 				product.erase(product.begin() + (ch-1));
+				cout << "Выберите пункт '6' для обновления файлов." << endl;
 			}
 			else {
 				cout << "Список летательных аппаратов пуст!" << endl;
-				system("pause");
 			}
 
 			D->clrFile();
-			cout << "Выберите пункт '6' для обновления файлов." << endl;
 			break;
 		case 4:
 			cout << "1) Пассажирский самолет" << endl;
@@ -150,6 +146,7 @@ int main() {
 				cout << ">> ";
 				getline(cin, tmp);
 				ch = atoi(tmp.c_str());
+				system("cls");
 			} while (ch<0 || ch>4);
 			system("cls");
 			if (choose2 == 1) {
@@ -168,10 +165,9 @@ int main() {
 				quadcopter* A = new quadcopter;
 				D->FileRead(product, *A);
 			}
-			else { cout << "Файлов не существует." << endl; }
+			else { cout << "Файл не существует." << endl; }
 		
-			cout << "Загрузка завершена." << endl;
-			system("pause");
+
 			break;
 		case 5:
 			if (!product.empty()) {
@@ -181,7 +177,6 @@ int main() {
 				do {
 					cout << ">> ";
 					getline(cin, tmp);
-				//	cin.ignore();
 					ch = atoi(tmp.c_str());
 
 				} while (ch<0 || ch>product.size());
@@ -204,8 +199,9 @@ int main() {
 					D->GetProduct(product[ch], *A);
 				}
 			}
-			system("pause");
-			/*вывести на экран*/
+			else {
+				cout << "Список летательных аппаратов пуст!" << endl;
+			}
 			break;
 		case 6:
 			if (!product.empty()) {
@@ -228,18 +224,19 @@ int main() {
 						D->FileWrite(product[j], *A);
 					}
 				}
+				cout << "Загрузка завершена." << endl;
 			}
-			cout << "Загрузка завершена." << endl;
-			system("pause");
+			else {
+				cout << "Список летательных аппаратов пуст!" << endl;
+			}
 			break;
 		case 7:
 			loop = false;
 			break;
 		default:
 			cout << "Ошибка! Повторите ввод" << endl;
-			system("pause");
 		}
-	
+		system("pause");
 	} while (loop);
 
 	system("cls");
