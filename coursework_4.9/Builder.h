@@ -5,29 +5,27 @@ class Builder {
 public:
 	Builder() { };
 	virtual ~Builder() {};
-	virtual void CreateProduct() {};
-	virtual void setMachine() {};
-	virtual void setType() {};//military or civilian - военный или гражданский
-	virtual void setIsMil() {}; //  type of military apparatus - тип военного аппарата
-	virtual void setWeihht() {};// takeoff weight - взлетная масса
-	virtual void setEngine() {};  //type of engines - тип двигателей
-	virtual void setNumEngine() {}; //number of engines - количество двигателей
-	virtual void setWings() {}; // number of wings - число крыльев
-	virtual void setArrangW() {};//arrangement of wings - расположение крыльев
-	virtual void setChassis() {}; // type of chassis - тип шасси
-	virtual void setSpeed() {};//flight speed - скорость полета
-	virtual void setTakeoff() {};//тип взлета
-	virtual void setLanding() {};//тип посадки
-	virtual void setControl() {}; //метод управления
-	virtual void setCrew() {};//экипаж(число)
-	virtual void setYear() {}; //год производства
-	virtual void setWeapon() {};//тип вооружения
-	virtual void delType() {};//удаление
-	virtual void ofile() {};//вывод в файл
-	virtual void ifile(vector <Conveyor*>& product) {};//считывание с файла
-	virtual void ofile(vector <Conveyor*>& product) {};
-	virtual void Get() {};//считывание с файла
-	virtual void toCurrBuild(Conveyor* product) {};
-	//virtual void Edit(Conveyor* product) {};//записать в новый объет тот объект который мы хотим изменить
+	virtual void CreateProduct() = 0;
+	virtual void setMachine() = 0;
+	virtual void setType() = 0;
+	virtual void setIsMil() = 0;
+	virtual void setWeihht() = 0;
+	virtual void setEngine() = 0;
+	virtual void setNumEngine() = 0; 
+	virtual void setWings() = 0;
+	virtual void setArrangW() = 0;
+	virtual void setChassis() = 0;
+	virtual void setSpeed() = 0;
+	virtual void setTakeoff() = 0;
+	virtual void setLanding() = 0;
+	virtual void setControl() = 0; 
+	virtual void setCrew() = 0;
+	virtual void setYear() = 0; 
+	virtual void setWeapon() = 0;
+	virtual void ofile() = 0;
+	virtual bool isNum(float num) = 0;
+	virtual void ifile(vector <Conveyor*>& product) = 0;
+	virtual void Get() = 0;
+	virtual void toCurrBuild(Conveyor* product) = 0;
 	virtual Conveyor* GetResult() { return nullptr; };
 };

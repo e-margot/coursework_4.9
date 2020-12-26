@@ -1,6 +1,21 @@
 ﻿  main.cpp
 c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(83): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(114): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(130): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(161): warning C4018: <: несоответствие типов со знаком и без знака
-  coursework_4.9.vcxproj -> C:\Users\User\Desktop\coursework_4.9\Debug\coursework_4.9.exe
+c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(92): warning C4018: >: несоответствие типов со знаком и без знака
+c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(124): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(134): warning C4018: >: несоответствие типов со знаком и без знака
+c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(153): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(162): warning C4018: >: несоответствие типов со знаком и без знака
+c:\users\user\desktop\coursework_4.9\coursework_4.9\main.cpp(188): warning C4018: <: несоответствие типов со знаком и без знака
+  quadcopter.cpp
+c:\users\user\desktop\coursework_4.9\coursework_4.9\quadcopter.cpp(163): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\coursework_4.9\coursework_4.9\quadcopter.cpp(178): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\coursework_4.9\coursework_4.9\quadcopter.cpp(187): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\coursework_4.9\coursework_4.9\quadcopter.cpp(206): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\user\desktop\coursework_4.9\coursework_4.9\quadcopter.cpp(233): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Создание кода...
+  LINK : эх эрщфхэ шыш эх т√яюыэхэр ёсюЁър C:\Users\User\Desktop\coursework_4.9\Debug\coursework_4.9.exe яЁш яюёыхфэхщ шэъЁхьхэЄэющ ъюьяюэютъх; т√яюыэ хЄё  яюыэр  ъюьяюэютър
+combatAircraft.obj : error LNK2005: "bool __cdecl isNum(float)" (?isNum@@YA_NM@Z) єцх юяЁхфхыхэ т airliner.obj
+Debug\combatAircraft.obj : warning LNK4042: юс·хъЄ єърчрэ сюыхх юфэюую Ёрчр; ыш°эшх эх єўшЄ√тр■Єё
+helicopter.obj : error LNK2005: "bool __cdecl isNum(float)" (?isNum@@YA_NM@Z) єцх юяЁхфхыхэ т airliner.obj
+quadcopter.obj : error LNK2005: "bool __cdecl isNum(float)" (?isNum@@YA_NM@Z) єцх юяЁхфхыхэ т airliner.obj
+C:\Users\User\Desktop\coursework_4.9\Debug\coursework_4.9.exe : fatal error LNK1169: юсэрЁєцхэ ьэюуюъЁрЄэю юяЁхфхыхээ√щ ёшьтюы - юфшэ шыш сюыхх

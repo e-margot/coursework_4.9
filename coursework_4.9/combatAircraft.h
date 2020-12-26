@@ -28,9 +28,11 @@ public:
 	void setControl();
 	void setCrew();
 	void setYear();
-	void SetWeapon();
+	void setWeapon();
 	void ofile();
 	void ifile();
 	void Get();
+	bool isNum(float num) override;
 	void toCurrBuild(Conveyor* product);
+	void ifile(vector<Conveyor*>& product);
 };
