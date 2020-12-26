@@ -5,31 +5,32 @@ void Director::Construct(Builder& builder){
 	builder.CreateProduct();
 	builder.setMachine();
 	builder.setType();
-	builder.setIsMil(); //  type of military apparatus - тип военного аппарата
-	builder.setWeihht();// takeoff weight - взлетная масса
-	builder.setEngine(); //type of engines - тип двигателей
-	builder.setNumEngine(); //number of engines - количество двигателей
-	builder.setWings(); // number of wings - число крыльев
-	builder.setArrangW();//arrangement of wings - расположение крыльев
-	builder.setChassis(); // type of chassis - тип шасси
-	builder.setSpeed();//flight speed - скорость полета
-	builder.setTakeoff();//тип взлета
-	builder.setLanding();//тип посадки
-	builder.setControl(); //метод управления
-	builder.setCrew();//экипаж(число)
-	builder.setYear(); //год производства
-	builder.setWeapon();//тип вооружения
-	//builder.ofile();//тип вооружения
-	//builder.ifile();
+	builder.setIsMil();
+	builder.setWeihht();
+	builder.setEngine(); 
+	builder.setNumEngine();
+	builder.setWings(); 
+	builder.setArrangW();
+	builder.setChassis();
+	builder.setSpeed();
+	builder.setTakeoff();
+	builder.setLanding();
+	builder.setControl(); 
+	builder.setCrew();
+	builder.setYear(); 
+	builder.setWeapon();
 
 }
 void Director::EditProduct(Conveyor* product, Builder& builder){
 	builder.CreateProduct();
 	builder.toCurrBuild(product); 
+	string tmp;
+	int ch = 0;
 	cout << "Выберите параметр" << endl;
 	cout << "1.	военный или гражданский\n2.	тип военного аппарата, тип гражданского аппарата\n3.	взлетная масса\n4.	тип двигателей\n5.	число двигателей\n6.	количество крыльев\n7.	расположение крыльев\n8.	тип шасси\n9.	скорость полета\n10.	по типу взлета\n11.	по типу посадки\n12.	способ управления\n13.	экипаж(число человек)\n14.	год производства\n15.	тип вооружения" << endl;
-	int ch = 0;
-	cin >> ch;
+	getline(cin, tmp);
+	ch = atoi(tmp.c_str());
+
 	switch (ch) {
 	case 1:
 		builder.setType();

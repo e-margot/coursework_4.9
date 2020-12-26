@@ -11,23 +11,21 @@ class Conveyor
 {
 public:
 	string machine;
-	string isMilitary; //Военный или гражданский
-	string type; //military or civilian - тип военный или гражданский
-	float weihht; // takeoff weight - взлетная масса
-	string engine; //type of engines - тип двигателей
-	int NumEngine; //number of engines - количество двигателей
-	int wings; // number of wings - число крыльев
-	string arrangW; //arrangement of wings - расположение крыльев
-	string chassis; // type of chassis - тип шасси
-	float speed;//flight speed - скорость полета
-	string takeoff;//тип взлета
-	string landing;//тип посадки
-	string control; //метод управления
-	int crew; //экипаж(число)
-	int year; //год производства
-	string weapon; //тип вооружения
+	string isMilitary; 
+	string type; 
+	float weihht; 
+	string engine;
+	int NumEngine; 
+	int wings; 
+	string arrangW; 
+	string chassis; 
+	float speed;
+	string takeoff;
+	string landing;
+	string control; 
+	int crew; 
+	int year; 
+	string weapon; 
 	Conveyor();
 	~Conveyor();
-	//string getMashine();
-	//Conveyor(const Conveyor & obj);
 };

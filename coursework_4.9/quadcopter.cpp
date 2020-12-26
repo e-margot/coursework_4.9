@@ -76,13 +76,10 @@ void quadcopter::CreateProduct()
 {
 	currentBuilder = new Conveyor();
 }
-
-// Метод, возвращающий продукт для клиента
 Conveyor* quadcopter::GetResult() {
 	return currentBuilder;
 }
 
-// Деструктор
 quadcopter::~quadcopter()
 {
 	if (currentBuilder != nullptr)
@@ -93,8 +90,8 @@ quadcopter::~quadcopter()
 void quadcopter::ofile() {
 	ofstream fout;
 	fout.open("qudro.txt", ios_base::app);
-	fout << "Тип: " << currentBuilder->type << endl;
-	fout << "Тип аппарата: " << currentBuilder->isMilitary << endl;
+	fout << "Тип: " << currentBuilder->isMilitary << endl;
+	fout << "Тип аппарата: " << currentBuilder->type << endl;
 	fout << "Взлетная масса: " << currentBuilder->weihht << endl;
 	fout << "Скорость полета: " << currentBuilder->speed << endl;
 	fout << "Способ управления: " << currentBuilder->control << endl;

@@ -127,8 +127,8 @@ void airliner::setYear() {
 void airliner::ofile() {
 	ofstream fout;
 	fout.open("airliner.txt", ios_base::app);
-	fout << "Тип: " << currentBuilder->type << endl;
-	fout << "Тип гражданского аппарата: " << currentBuilder->isMilitary << endl;
+	fout << "Тип: " << currentBuilder->isMilitary << endl;
+	fout << "Тип гражданского аппарата: " << currentBuilder->type << endl;
 	fout << "Взлетная масса: " << currentBuilder->weihht << endl;
 	fout << "Тип двигателей: " << currentBuilder->engine << endl;
 	fout << "Число двигателей: " << currentBuilder->NumEngine << endl;

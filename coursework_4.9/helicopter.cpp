@@ -184,8 +184,8 @@ void helicopter::toCurrBuild(Conveyor* product) {
 }
 
 void helicopter::Get() {
-	cout << "Тип: " << currentBuilder->type << endl;
-	cout << "Тип военного или гражданского аппарата: " << currentBuilder->isMilitary << endl;
+	cout << "Тип: " << currentBuilder->isMilitary << endl;
+	cout << "Тип военного или гражданского аппарата: " << currentBuilder->type << endl;
 	cout << "Взлетная масса: " << currentBuilder->weihht << endl;
 	cout << "Тип двигателей: " << currentBuilder->engine << endl;
 	cout << "Число двигателей: " << currentBuilder->NumEngine << endl;

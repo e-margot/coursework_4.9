@@ -86,7 +86,6 @@ int main() {
 				do {
 					cout << ">> ";
 					getline(cin, tmp);
-					//cin.ignore();
 					ch = atoi(tmp.c_str());
 					
 				} while (ch<0||ch>product.size());
@@ -128,11 +127,10 @@ int main() {
 				do {
 					cout << ">> ";
 					getline(cin, tmp);
-					//cin.ignore();
 					ch = atoi(tmp.c_str());
 
 				} while (ch<0 || ch>product.size());
-				//cin >> ch; /*заита на ввод*/
+			
 				product.erase(product.begin() + (ch-1));
 			}
 			else {
@@ -148,11 +146,11 @@ int main() {
 			cout << "2) Военный самолет" << endl;
 			cout << "3) Вертолет" << endl;
 			cout << "4) Квадрокоптер" << endl;
-			cout << ">> ";
-			getline(cin, tmp);
-			//cin >> choose1;
-			//cin.ignore();
-			choose2 = atoi(tmp.c_str());
+			do {
+				cout << ">> ";
+				getline(cin, tmp);
+				ch = atoi(tmp.c_str());
+			} while (ch<0 || ch>4);
 			system("cls");
 			if (choose2 == 1) {
 				airliner* A = new airliner;
@@ -163,15 +161,15 @@ int main() {
 				D->FileRead(product, *A);
 			}
 			else if (choose2 == 3) {
-				quadcopter* A = new quadcopter;
-				D->FileRead(product, *A);
-			}
-			else if (choose2 == 4) {
 				helicopter* A = new helicopter;
 				D->FileRead(product, *A);
 			}
+			else if (choose2 == 4) {
+				quadcopter* A = new quadcopter;
+				D->FileRead(product, *A);
+			}
 			else { cout << "Файлов не существует." << endl; }
-		//	D->FileRead(product, *Air);
+		
 			cout << "Загрузка завершена." << endl;
 			system("pause");
 			break;
@@ -188,7 +186,6 @@ int main() {
 
 				} while (ch<0 || ch>product.size());
 				ch--;
-			//	cout << "Загрузка" << endl;
 				int check = D->check(product[ch]);
 				if (check == 1) {
 					airliner* A = new airliner;

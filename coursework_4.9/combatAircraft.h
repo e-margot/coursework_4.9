@@ -8,7 +8,6 @@ private:
 	Conveyor* currentBuilder;
 
 public:
-	// Конструктор
 	combatAircraft();
 	~combatAircraft();
 	void CreateProduct();
